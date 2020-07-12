@@ -1,5 +1,4 @@
 
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%@page import="model.entity.Classes"%>
@@ -9,9 +8,10 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 <html>
 <body>
+<table >
 
-<a href="/main">Start</a>
-   <%try{ArrayList<Classes> std =
+
+        <%try{ArrayList<Classes> std =
             (ArrayList<Classes>)request.getAttribute("classes");
         for(Classes c:std){%>
                 <tr>
@@ -22,5 +22,6 @@
             e.printStackTrace();
             }%>
         </table>
+
 </body>
 </html>

@@ -59,7 +59,9 @@ public class ClassesService extends Util implements Dao<Classes> {
                 classes.setClasses(resultSet.getString("CLASS"));
                 classesList.add(classes);
             }
-        }catch (SQLException e){
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }catch (NullPointerException e){
             e.printStackTrace();
         } finally {
             if(statement != null){

@@ -14,6 +14,7 @@ model\service\NameService.class
 model\entity\Address.class
 model\entity\Mark.class
 model\entity\Student.class
+controller\ShowClassServet.class
 model\service\MarkService.class
 model\service\SubjectService.class
 model\entity\Name.class
