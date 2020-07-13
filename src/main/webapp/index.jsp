@@ -9,17 +9,7 @@
 <body>
 
     <a href="/main">Start</a>
-    <%try{ArrayList<Classes> std =
-            (ArrayList<Classes>)request.getAttribute("classes");
-        for(Classes c:std){%>
-    <tr>
-        <td><%=c.getClasses()%></td>
-    </tr>
-    <%}
-            }catch(Exception e){
-            e.printStackTrace();
-            }%>
-    </table>
+
 </body>
 
 </html>

@@ -4,6 +4,7 @@ import model.entity.Classes;
 import model.entity.Student;
 import model.service.ClassesService;
 import model.service.StudentService;
+import org.h2.jdbc.JdbcSQLNonTransientException;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -55,7 +56,41 @@ public class ClassLogic {
         }
 
 
+
     }
 
+
+    public static boolean newClassAdd (String classNumber) throws SQLException {
+
+        boolean status = false;
+
+        classNumber = classNumber.toUpperCase();
+        char[] splitClassNumber = classNumber.toCharArray();
+        char numberClass = (char)splitClassNumber[1];
+
+        if((numberClass>=65)&&(numberClass<=90)) {
+            List<Classes> classesList = new ClassesService().getAll();
+            int classPresent = 0;
+            for(Classes classes : classesList){
+                if(classes.getClasses() == classNumber)
+                {
+                    classPresent = 1;
+                }
+            }
+
+            if(classPresent == 0)
+            {
+                Classes classes = new Classes();
+                classes.setId(classesList.size()+1);
+                classes.setClasses(classNumber);
+                new ClassesService().add(classes);
+                status = true;
+            }
+
+//
+        }
+
+        return status;
+    }
 
 }

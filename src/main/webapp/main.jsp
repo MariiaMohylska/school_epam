@@ -19,11 +19,13 @@
                 }
                 %>
                         <td>
-
-
                                 <form method="get" action="students">
                                         <input type="submit" name="class" value="<%=c.getClasses()%>" />
                                 </form>
+                                <form method="post" action="deleteClass">
+                                        <input type="number" hidden name="classForDelete" value="<%=c.getId()%>" />
+                                        <input type="submit" name="delete" value="Delete"/>
+                                 </form>
                         </td>
                         <%}%>
         </tr>
@@ -32,8 +34,13 @@
         }%>
         </table>
         <br />
+         <form method="get" action="mainAfterTransfer">
         <input type="button" value="Transfer all classes">
-        <input type="button" value="Add new class">
+        </form>
+         <form method="get" action="addClass">
+        <input type="submit" value="Add new class">
+        </form>
+
 
 </body>
 

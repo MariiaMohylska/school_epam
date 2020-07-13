@@ -15,12 +15,15 @@ D:\EPAM_Study\EPAM project\school\src\main\java\model\service\SubjectService.jav
 D:\EPAM_Study\EPAM project\school\src\main\java\model\entity\Phone.java
 D:\EPAM_Study\EPAM project\school\src\main\java\model\logic\ClassLogic.java
 D:\EPAM_Study\EPAM project\school\src\main\java\model\service\SubjClassService.java
+D:\EPAM_Study\EPAM project\school\src\main\java\controller\DeleteClassServlet.java
 D:\EPAM_Study\EPAM project\school\src\main\java\model\logic\NewStudent.java
 D:\EPAM_Study\EPAM project\school\src\main\java\model\service\AddressService.java
 D:\EPAM_Study\EPAM project\school\src\main\java\controller\ShowClassServet.java
 D:\EPAM_Study\EPAM project\school\src\main\java\model\service\PersonalFileService.java
 D:\EPAM_Study\EPAM project\school\src\main\java\model\entity\PersonalFile.java
+D:\EPAM_Study\EPAM project\school\src\main\java\controller\AddClassServlet.java
 D:\EPAM_Study\EPAM project\school\src\main\java\controller\StudentInClassServlet.java
 D:\EPAM_Study\EPAM project\school\src\main\java\model\entity\Classes.java
 D:\EPAM_Study\EPAM project\school\src\main\java\model\entity\Address.java
 D:\EPAM_Study\EPAM project\school\src\main\java\model\entity\SubjClass.java
+D:\EPAM_Study\EPAM project\school\src\main\java\controller\TransferClass.java

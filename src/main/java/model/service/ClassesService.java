@@ -3,6 +3,7 @@ package model.service;
 import model.Util;
 import model.dao.Dao;
 import model.entity.Classes;
+import org.h2.jdbc.JdbcSQLNonTransientException;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -21,12 +22,13 @@ public class ClassesService extends Util implements Dao<Classes> {
 
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, id);
+
             ResultSet resultSet = preparedStatement.executeQuery();
 
             classes.setId(resultSet.getInt("IDCLASS"));
             classes.setClasses(resultSet.getString("CLASS"));
 
-            preparedStatement.executeUpdate();
+//            preparedStatement.executeUpdate();
 
         }catch (SQLException e){
             e.printStackTrace();
@@ -41,6 +43,7 @@ public class ClassesService extends Util implements Dao<Classes> {
 
         return Optional.ofNullable(classes);
     }
+
 
     @Override
     public List<Classes> getAll() throws SQLException {
@@ -78,20 +81,13 @@ public class ClassesService extends Util implements Dao<Classes> {
     @Override
     public void add(Classes classes) throws SQLException {
         PreparedStatement preparedStatement = null;
-        String sql = "INSERT INTO CLASS (CLASS) VALUES (?)";
+        String sql = "INSERT INTO CLASS (IDCLASS,CLASS) VALUES (?, ?)";
 
         try {
             preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, classes.getClasses());
+            preparedStatement.setInt(1, classes.getId());
+            preparedStatement.setString(2, classes.getClasses());
             preparedStatement.executeUpdate();
-
-            sql = "SELECT IDCLASS FROM CLASS WHERE CLASS=?";
-
-            preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, classes.getClasses());
-            ResultSet resultSet = preparedStatement.executeQuery();
-
-            classes.setId(resultSet.getInt("IDCLASS"));
 
         }catch (SQLException e){
             e.printStackTrace();

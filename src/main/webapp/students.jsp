@@ -25,6 +25,9 @@ Name
 <td>
 &nbsp; Birth Date &nbsp;
 </td>
+<td>
+&nbsp; Actions &nbsp;
+</td>
 </tr>
         <%try{ArrayList<NewStudent> list = (ArrayList<NewStudent>)request.getAttribute("students");%>
 
@@ -52,7 +55,16 @@ Name
                    <td>
                    <%=student.getBDay()%>
                    </td>
-
+                   <td>
+                   <br/>
+                     <input type="button" value="Edit">
+                     <br/>
+                     <input type="button" value="View marks">
+                     <br/>
+                     <input type="button" value="Delete">
+                     <br/>
+                     <br/>
+                     </td>
                  </tr>
                 <%}%>
 

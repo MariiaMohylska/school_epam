@@ -10,8 +10,10 @@ model\service\StudentService.class
 model\service\AddressService.class
 model\entity\Mark.class
 controller\ShowClassServet.class
+controller\TransferClass.class
 model\service\MarkService.class
 model\entity\Name.class
+controller\DeleteClassServlet.class
 model\entity\PersonalFile.class
 model\ClassEnum.class
 model\entity\Phone.class
@@ -22,5 +24,6 @@ model\entity\Student.class
 controller\StudentInClassServlet.class
 model\service\SubjectService.class
 model\logic\NewStudent.class
+controller\AddClassServlet.class
 model\entity\SubjClass.class
 model\entity\Subject.class

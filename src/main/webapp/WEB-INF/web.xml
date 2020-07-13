@@ -9,17 +9,44 @@
     <servlet-name>ShowClassServlet</servlet-name>
     <servlet-class>controller.ShowClassServet</servlet-class>
   </servlet>
-  <servlet>
-    <servlet-name>StudentInClassServlet</servlet-name>
-    <servlet-class>controller.StudentInClassServlet</servlet-class>
-  </servlet>
-
   <servlet-mapping>
     <servlet-name>ShowClassServlet</servlet-name>
     <url-pattern>/main</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+  <servlet-name>StudentInClassServlet</servlet-name>
+  <servlet-class>controller.StudentInClassServlet</servlet-class>
+</servlet>
   <servlet-mapping>
     <servlet-name>StudentInClassServlet</servlet-name>
     <url-pattern>/students</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>TransferClass</servlet-name>
+    <servlet-class>controller.TransferClass</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TransferClass</servlet-name>
+    <url-pattern>/mainAfterTransfer</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>AddClassServlet</servlet-name>
+    <servlet-class>controller.AddClassServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddClassServlet</servlet-name>
+    <url-pattern>/addClass</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>DeleteClassServlet</servlet-name>
+    <servlet-class>controller.DeleteClassServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteClassServlet</servlet-name>
+    <url-pattern>/deleteClass</url-pattern>
   </servlet-mapping>
 </web-app>
