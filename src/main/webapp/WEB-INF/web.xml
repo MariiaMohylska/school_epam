@@ -4,21 +4,22 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
-  <servlet>
-    <servlet-name>servlet</servlet-name>
-    <servlet-class>controller.servlet</servlet-class>
-  </servlet>
+
   <servlet>
     <servlet-name>ShowClassServlet</servlet-name>
     <servlet-class>controller.ShowClassServet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>StudentInClassServlet</servlet-name>
+    <servlet-class>controller.StudentInClassServlet</servlet-class>
+  </servlet>
 
-  <servlet-mapping>
-    <servlet-name>servlet</servlet-name>
-    <url-pattern>/servlet</url-pattern>
-  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>ShowClassServlet</servlet-name>
     <url-pattern>/main</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>StudentInClassServlet</servlet-name>
+    <url-pattern>/students</url-pattern>
   </servlet-mapping>
 </web-app>

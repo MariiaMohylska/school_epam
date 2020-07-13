@@ -15,7 +15,7 @@ public class ClassesService extends Util implements Dao<Classes> {
     @Override
     public Optional<Classes> get(int id) throws SQLException {
         PreparedStatement preparedStatement = null;
-        String sql = "SELECT IDADDRESS, CLASS FROM CLASS WHERE IDCLASS=?";
+        String sql = "SELECT IDCLASS, CLASS FROM CLASS WHERE IDCLASS=?";
         Classes classes = new Classes();
         try {
 

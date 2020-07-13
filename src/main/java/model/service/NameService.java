@@ -15,7 +15,7 @@ public class NameService extends Util implements Dao<Name> {
     @Override
     public Optional<Name> get(int id) throws SQLException {
         PreparedStatement preparedStatement = null;
-        String sql = "SELECT IDNAME, SURNAME, NAME, FATHERNAME FROM NAME WHERE IDADDRESS=?";
+        String sql = "SELECT IDNAME, SURNAME, NAME, FATHER_NAME FROM NAME WHERE IDNAME=?";
         Name name = new Name();
         try {
 
@@ -26,7 +26,7 @@ public class NameService extends Util implements Dao<Name> {
             name.setId(resultSet.getInt("IDNAME"));
             name.setSurname(resultSet.getString("SURNAME"));
             name.setName(resultSet.getString("NAME"));
-            name.setFatherName(resultSet.getString("FATHERNAME"));
+            name.setFatherName(resultSet.getString("FATHER_NAME"));
 
             preparedStatement.executeUpdate();
 
@@ -48,7 +48,7 @@ public class NameService extends Util implements Dao<Name> {
     public List<Name> getAll() throws SQLException {
         List<Name> nameList = new ArrayList<>();
 
-        String sql = "SELECT IDNAME, SURNAME, NAME, FATHERNAME FROM NAME";
+        String sql = "SELECT IDNAME, SURNAME, NAME, FATHER_NAME FROM NAME";
 
         Statement statement = null;
         try{
@@ -60,7 +60,7 @@ public class NameService extends Util implements Dao<Name> {
                 name.setId(resultSet.getInt("IDNAME"));
                 name.setSurname(resultSet.getString("SURNAME"));
                 name.setName(resultSet.getString("NAME"));
-                name.setFatherName(resultSet.getString("FATHERNAME"));
+                name.setFatherName(resultSet.getString("FATHER_NAME"));
                 nameList.add(name);
             }
         }catch (SQLException e){
@@ -80,7 +80,7 @@ public class NameService extends Util implements Dao<Name> {
     @Override
     public void add(Name name) throws SQLException {
         PreparedStatement preparedStatement = null;
-        String sql = "INSERT INTO NAME (SURNAME, NAME, FATHERNAME) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO NAME (SURNAME, NAME, FATHER_NAME) VALUES (?, ?, ?)";
 
         try {
             preparedStatement = connection.prepareStatement(sql);
@@ -89,7 +89,7 @@ public class NameService extends Util implements Dao<Name> {
             preparedStatement.setString(3, name.getFatherName());
             preparedStatement.executeUpdate();
 
-            sql = "SELECT IDADDRESS FROM NAME WHERE SURNAME=? AND NAME=? AND FATHERNAME=?";
+            sql = "SELECT IDADDRESS FROM NAME WHERE SURNAME=? AND NAME=? AND FATHER_NAME=?";
 
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, name.getSurname());
@@ -114,7 +114,7 @@ public class NameService extends Util implements Dao<Name> {
     @Override
     public void update(Name name) throws SQLException {
         PreparedStatement preparedStatement = null;
-        String sql = "UPDATE NAME SET SURNAME=?, NAME=?, FATHERNAME=? WHERE IDNAME=?";
+        String sql = "UPDATE NAME SET SURNAME=?, NAME=?, FATHER_NAME=? WHERE IDNAME=?";
         try{
             preparedStatement = connection.prepareStatement(sql);
 
