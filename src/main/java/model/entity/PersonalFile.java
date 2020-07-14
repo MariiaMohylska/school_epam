@@ -1,5 +1,6 @@
 package model.entity;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Objects;
 
@@ -8,8 +9,8 @@ public class PersonalFile {
     private int id;
     private String number;
     private int idStudent;
-    private Date entryDate;
-    private Date gradDate;
+    private LocalDate entryDate;
+    private LocalDate gradDate;
 
     public PersonalFile() {
     }
@@ -38,19 +39,19 @@ public class PersonalFile {
         this.idStudent = idStudent;
     }
 
-    public Date getEntryDate() {
+    public LocalDate getEntryDate() {
         return entryDate;
     }
 
-    public void setEntryDate(Date entryDate) {
+    public void setEntryDate(LocalDate entryDate) {
         this.entryDate = entryDate;
     }
 
-    public Date getGradDate() {
+    public LocalDate getGradDate() {
         return gradDate;
     }
 
-    public void setGradDate(Date gradDate) {
+    public void setGradDate(LocalDate gradDate) {
         this.gradDate = gradDate;
     }
 

@@ -78,22 +78,15 @@ public class PhoneService extends Util implements Dao<Phone> {
     @Override
     public void add(Phone phone) throws SQLException {
         PreparedStatement preparedStatement = null;
-        String sql = "INSERT INTO PHONE (PHONE_NUMBER, STUDENT) VALUES (?, ?)";
+        String sql = "INSERT INTO PHONE (IDPHONE, PHONE_NUMBER, STUDENT) VALUES (?, ?, ?)";
 
         try {
             preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, phone.getPhone());
-            preparedStatement.setInt(2, phone.getIdStudent());
+            preparedStatement.setInt(1, phone.getId());
+            preparedStatement.setString(2, phone.getPhone());
+            preparedStatement.setInt(3, phone.getIdStudent());
             preparedStatement.executeUpdate();
 
-            sql = "SELECT IDPHONE FROM PHONE WHERE PHONE_NUMBER=? AND STUDENT=?";
-
-            preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, phone.getPhone());
-            preparedStatement.setInt(2, phone.getIdStudent());
-            ResultSet resultSet = preparedStatement.executeQuery();
-
-            phone.setId(resultSet.getInt("IDPHONE"));
 
         }catch (SQLException e){
             e.printStackTrace();

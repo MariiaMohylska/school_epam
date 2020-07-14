@@ -4,13 +4,14 @@ import model.entity.*;
 import model.service.*;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 public class StudentLogic {
-    public static List<NewStudent> getRepresentation() throws SQLException {
-        List<NewStudent> newStudentList = new ArrayList<>();
+
+    public static List<StudentShort> getRepresentation() throws SQLException {
+        List<StudentShort> studentShortList = new ArrayList<>();
 
         ClassesService classesService = new ClassesService();
         StudentService studentService = new StudentService();
@@ -25,8 +26,8 @@ public class StudentLogic {
         List<Phone> phoneList = phoneService.getAll();
 
         for(Student student : studentList){
-            NewStudent newStudent = new NewStudent();
-            newStudent.setBDay(student.getBDay());
+            StudentShort studentShort = new StudentShort();
+            studentShort.setBDay(student.getBDay());
             List<String> phone = new ArrayList<>();
 
             for(Phone phoneCycle : phoneList){
@@ -34,29 +35,29 @@ public class StudentLogic {
                     phone.add(phoneCycle.getPhone());
                 }
             }
-            newStudent.setPhone(phone);
+            studentShort.setPhone(phone);
 
             for(PersonalFile personalFile : personalFileList){
                 if(personalFile.getIdStudent() == student.getId()){
-                    newStudent.setFileNumber(personalFile.getNumber());
+                    studentShort.setFileNumber(personalFile.getNumber());
                 }
             }
 
             for(Classes classes : classesList){
                 if(classes.getId() == student.getIdClass()){
-                    newStudent.setClassNumber(classes.getClasses());
+                    studentShort.setClassNumber(classes.getClasses());
                 }
             }
 
             for(Name name: nameList){
                 if(name.getId() == student.getIdName()){
-                    newStudent.setSurname(name.getSurname());
-                    newStudent.setName(name.getName());
-                    newStudent.setFatherName(name.getFatherName());
+                    studentShort.setSurname(name.getSurname());
+                    studentShort.setName(name.getName());
+                    studentShort.setFatherName(name.getFatherName());
                 }
             }
 
-            newStudentList.add(newStudent);
+            studentShortList.add(studentShort);
 
 
         }
@@ -64,6 +65,79 @@ public class StudentLogic {
 
 
 
-        return newStudentList;
+        return studentShortList;
+    }
+
+    public static void AddStudent(NewStudent newStudent) throws SQLException {
+        Student student = new Student();
+        List<Student> studentList = new StudentService().getAll();
+        int studentMaxId = 0;
+        for(Student std : studentList){
+            studentMaxId = (std.getId()>studentMaxId) ? std.getId() : studentMaxId;
+        }
+        student.setId(studentMaxId + 1);
+        student.setBDay(newStudent.getBday());
+        student.setIdClass(Integer.parseInt(newStudent.getClassNumber()));
+
+        PersonalFile personalFile = new PersonalFile();
+        List<PersonalFile> personalFileList = new PersonalFileService().getAll();
+        int personelFileMaxId = 0;
+        for(PersonalFile file : personalFileList){
+            personelFileMaxId = (file.getId()>personelFileMaxId) ? file.getId() : personelFileMaxId;
+        }
+
+        personalFile.setId(personelFileMaxId + 1);
+        personalFile.setIdStudent(student.getId());
+        personalFile.setEntryDate(newStudent.getEntryDate());
+        personalFile.setNumber(newStudent.getFileNumber());
+
+        Name name = new Name();
+        List<Name> nameList = new NameService().getAll();
+        int nameMaxId = 0;
+        for(Name n: nameList){
+            nameMaxId = (n.getId()>nameMaxId) ? n.getId() : nameMaxId;
+        }
+
+        name.setId(nameMaxId+1);
+        name.setSurname(newStudent.getSurname());
+        name.setName(newStudent.getName());
+        name.setFatherName(newStudent.getFatherName());
+
+        new NameLogic().AddName(name);
+
+        student.setIdName(name.getId());
+
+        Address address = new Address();
+        int addressMaxId = 0;
+        List<Address> addressList = new AddressService().getAll();
+        for(Address addr : addressList){
+            addressMaxId = (addr.getId()>addressMaxId) ? addr.getId() : addressMaxId;
+        }
+
+        address.setId(addressMaxId+1);
+        address.setCity(newStudent.getCity());
+        address.setStreet(newStudent.getStreet());
+        address.setHouse(newStudent.getHouse());
+        address.setFlat(newStudent.getFlat());
+
+        new AddressLogic().AddAdress(address);
+
+        student.setIdAddress(address.getId());
+
+        Phone phone = new Phone();
+        List<Phone> phoneList = new PhoneService().getAll();
+        int phoneMaxId = 0;
+        for(Phone ph:phoneList){
+            phoneMaxId = (ph.getId()>phoneMaxId) ? ph.getId() : phoneMaxId;
+        }
+
+        phone.setId(phoneMaxId+1);
+        phone.setIdStudent(student.getId());
+        phone.setPhone(newStudent.getPhoneNumber());
+
+        new StudentService().add(student);
+        new PersonalFileLogic().AddPersonalFile(personalFile);
+        new PhoneLogic().AddPhone(phone);
+
     }
 }

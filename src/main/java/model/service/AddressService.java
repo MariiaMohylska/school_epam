@@ -83,26 +83,18 @@ public class AddressService extends Util implements Dao<Address> {
     @Override
     public void add(Address address) throws SQLException {
         PreparedStatement preparedStatement = null;
-        String sql = "INSERT INTO ADDRESS (CITY, STREET, HOUSE, FLAT) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO ADDRESS (IDADDRESS, CITY, STREET, HOUSE, FLAT) VALUES (?, ?, ?, ?, ?)";
 
         try {
             preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, address.getCity());
-            preparedStatement.setString(2, address.getStreet());
-            preparedStatement.setString(3, address.getHouse());
-            preparedStatement.setString(4, address.getFlat());
+            preparedStatement.setInt(1, address.getId());
+            preparedStatement.setString(2, address.getCity());
+            preparedStatement.setString(3, address.getStreet());
+            preparedStatement.setString(4, address.getHouse());
+            preparedStatement.setString(5, address.getFlat());
             preparedStatement.executeUpdate();
 
-            sql = "SELECT IDADDRESS FROM ADDRESS WHERE CITY=? AND STREET=? AND HOUSE=? AND FLAT=?";
 
-            preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, address.getCity());
-            preparedStatement.setString(2, address.getStreet());
-            preparedStatement.setString(3, address.getHouse());
-            preparedStatement.setString(4, address.getFlat());
-            ResultSet resultSet = preparedStatement.executeQuery();
-
-            address.setId(resultSet.getInt("IDADDRESS"));
 
         }catch (SQLException e){
             e.printStackTrace();

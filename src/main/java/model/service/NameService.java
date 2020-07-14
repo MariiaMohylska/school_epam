@@ -80,24 +80,16 @@ public class NameService extends Util implements Dao<Name> {
     @Override
     public void add(Name name) throws SQLException {
         PreparedStatement preparedStatement = null;
-        String sql = "INSERT INTO NAME (SURNAME, NAME, FATHER_NAME) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO NAME (IDNAME, SURNAME, NAME, FATHER_NAME) VALUES (?, ?, ?, ?)";
 
         try {
             preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, name.getSurname());
-            preparedStatement.setString(2, name.getName());
-            preparedStatement.setString(3, name.getFatherName());
+            preparedStatement.setInt(1, name.getId());
+            preparedStatement.setString(2, name.getSurname());
+            preparedStatement.setString(3, name.getName());
+            preparedStatement.setString(4, name.getFatherName());
             preparedStatement.executeUpdate();
 
-            sql = "SELECT IDADDRESS FROM NAME WHERE SURNAME=? AND NAME=? AND FATHER_NAME=?";
-
-            preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, name.getSurname());
-            preparedStatement.setString(2, name.getName());
-            preparedStatement.setString(3, name.getFatherName());
-            ResultSet resultSet = preparedStatement.executeQuery();
-
-            name.setId(resultSet.getInt("IDNAME"));
 
         }catch (SQLException e){
             e.printStackTrace();

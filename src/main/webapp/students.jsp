@@ -1,13 +1,21 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<%@page import="model.logic.NewStudent"%>
+<%@page import="model.logic.StudentShort"%>
 <%@page import="java.util.ArrayList"%>
 <!DOCTYPE web-app PUBLIC
  "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 <html>
 <body>
+<%try{String classNumber = (String)request.getAttribute("classNumber");%>
+<form method="get" action="addStudent">
+<input type="number" hidden name="classToAdd" value="<%=classNumber%>" />
+<input type="submit" value="Add student">
+</form>
+ <%}catch(Exception e){
+                e.printStackTrace();
+        }%>
 <table border=1px>
 <tr>
 <td>
@@ -29,9 +37,9 @@ Name
 &nbsp; Actions &nbsp;
 </td>
 </tr>
-        <%try{ArrayList<NewStudent> list = (ArrayList<NewStudent>)request.getAttribute("students");%>
+        <%try{ArrayList<StudentShort> list = (ArrayList<StudentShort>)request.getAttribute("students");%>
 
-                <%for(NewStudent student:list){
+                <%for(StudentShort student:list){
                 %>
                  <tr>
                  <td>

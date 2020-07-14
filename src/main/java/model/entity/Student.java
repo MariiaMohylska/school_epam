@@ -1,6 +1,7 @@
 package model.entity;
 
-import java.sql.Date;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.Objects;
 
 public class Student {
@@ -8,7 +9,7 @@ public class Student {
     private int idName;
     private int idAddress;
     private int idClass;
-    private Date BDay;
+    private LocalDate BDay;
 
     public Student() {
     }
@@ -45,11 +46,11 @@ public class Student {
         this.idClass = idClass;
     }
 
-    public Date getBDay() {
+    public LocalDate getBDay() {
         return BDay;
     }
 
-    public void setBDay(Date BDay) {
+    public void setBDay(LocalDate BDay) {
         this.BDay = BDay;
     }
 

@@ -2,6 +2,7 @@ package controller;
 
 import model.logic.NewStudent;
 import model.logic.StudentLogic;
+import model.logic.StudentShort;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -16,32 +17,28 @@ public class StudentInClassServlet extends HttpServlet {
 
     private final  static String index = "/students.jsp";
 
-    private List<NewStudent> studentList;
+    private List<StudentShort> studentList;
 
-    @Override
-    public void init() throws ServletException {
+
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
         try {
             studentList = StudentLogic.getRepresentation();
-            for (NewStudent n : studentList){
-                System.out.println(n);
-            }
+
         } catch (SQLException e) {
             System.out.println("Problem retrieving data from database");
             e.printStackTrace();
         }
-    }
-
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
         final String classNumber = req.getParameter("class");
-        List<NewStudent> newStudentList = new ArrayList<>();
-        for(NewStudent student: studentList){
+        final String clasId = req.getParameter("classId");
+        List<StudentShort> studentShortList = new ArrayList<>();
+        for(StudentShort student: studentList){
             if(student.getClassNumber().equals(classNumber)){
-                newStudentList.add(student);
+                studentShortList.add(student);
             }
         }
-
-        req.setAttribute("students", newStudentList);
+        req.setAttribute("classNumber", clasId);
+        req.setAttribute("students", studentShortList);
         req.getRequestDispatcher(index).forward(req, resp);
     }
 

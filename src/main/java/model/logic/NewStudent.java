@@ -1,49 +1,52 @@
 package model.logic;
 
-import java.util.ArrayList;
+import model.entity.*;
+
+import java.time.LocalDate;
 import java.util.Date;
-import java.util.List;
 import java.util.Objects;
 
 public class NewStudent  {
-    private String FileNumber;
-    private String Surname;
-    private String Name;
-    private String FatherName;
+
+    private String surname;
+    private String name;
+    private String fatherName;
     private String classNumber;
-    private Date BDay;
-    private List<String> phone = new ArrayList<>();
+    private String fileNumber;
+    private LocalDate entryDate;
+    private  String phoneNumber;
+    private String city;
+    private String street;
+    private String house;
+    private String flat;
+    private LocalDate Bday;
 
-    public String getFileNumber() {
-        return FileNumber;
-    }
+    public NewStudent (){
 
-    public void setFileNumber(String fileNumber) {
-        FileNumber = fileNumber;
     }
 
     public String getSurname() {
-        return Surname;
+        return surname;
     }
 
     public void setSurname(String surname) {
-        Surname = surname;
+        this.surname = surname;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public String getFatherName() {
-        return FatherName;
+        return fatherName;
     }
 
     public void setFatherName(String fatherName) {
-        FatherName = fatherName;
+        this.fatherName = fatherName;
     }
 
     public String getClassNumber() {
@@ -54,20 +57,68 @@ public class NewStudent  {
         this.classNumber = classNumber;
     }
 
-    public Date getBDay() {
-        return BDay;
+    public String getFileNumber() {
+        return fileNumber;
     }
 
-    public void setBDay(Date BDay) {
-        this.BDay = BDay;
+    public void setFileNumber(String fileNumber) {
+        this.fileNumber = fileNumber;
     }
 
-    public List<String> getPhone() {
-        return phone;
+    public LocalDate getEntryDate() {
+        return entryDate;
     }
 
-    public void setPhone(List<String> phone) {
-        this.phone = phone;
+    public void setEntryDate(LocalDate entryDate) {
+        this.entryDate = entryDate;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public String getHouse() {
+        return house;
+    }
+
+    public void setHouse(String house) {
+        this.house = house;
+    }
+
+    public String getFlat() {
+        return flat;
+    }
+
+    public void setFlat(String flat) {
+        this.flat = flat;
+    }
+
+    public LocalDate getBday() {
+        return Bday;
+    }
+
+    public void setBday(LocalDate bday) {
+        Bday = bday;
     }
 
     @Override
@@ -75,30 +126,40 @@ public class NewStudent  {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         NewStudent that = (NewStudent) o;
-        return Objects.equals(FileNumber, that.FileNumber) &&
-                Objects.equals(Surname, that.Surname) &&
-                Objects.equals(Name, that.Name) &&
-                Objects.equals(FatherName, that.FatherName) &&
+        return Objects.equals(surname, that.surname) &&
+                Objects.equals(name, that.name) &&
+                Objects.equals(fatherName, that.fatherName) &&
                 Objects.equals(classNumber, that.classNumber) &&
-                Objects.equals(BDay, that.BDay) &&
-                Objects.equals(phone, that.phone);
+                Objects.equals(fileNumber, that.fileNumber) &&
+                Objects.equals(entryDate, that.entryDate) &&
+                Objects.equals(phoneNumber, that.phoneNumber) &&
+                Objects.equals(city, that.city) &&
+                Objects.equals(street, that.street) &&
+                Objects.equals(house, that.house) &&
+                Objects.equals(flat, that.flat) &&
+                Objects.equals(Bday, that.Bday);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(FileNumber, Surname, Name, FatherName, classNumber, BDay, phone);
+        return Objects.hash(surname, name, fatherName, classNumber, fileNumber, entryDate, phoneNumber, city, street, house, flat, Bday);
     }
 
     @Override
     public String toString() {
         return "NewStudent{" +
-                "FileNumber='" + FileNumber + '\'' +
-                ", Surname='" + Surname + '\'' +
-                ", Name='" + Name + '\'' +
-                ", FatherName='" + FatherName + '\'' +
+                "surname='" + surname + '\'' +
+                ", name='" + name + '\'' +
+                ", fatherName='" + fatherName + '\'' +
                 ", classNumber='" + classNumber + '\'' +
-                ", BDay=" + BDay +
-                ", phone=" + phone +
+                ", fileNumber='" + fileNumber + '\'' +
+                ", entryDate=" + entryDate +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", city='" + city + '\'' +
+                ", street='" + street + '\'' +
+                ", house='" + house + '\'' +
+                ", flat='" + flat + '\'' +
+                ", Bday=" + Bday +
                 '}';
     }
 }

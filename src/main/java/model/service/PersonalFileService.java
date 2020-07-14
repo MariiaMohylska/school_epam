@@ -5,6 +5,7 @@ import model.Util;
 import model.dao.Dao;
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -26,8 +27,8 @@ public class PersonalFileService extends Util implements Dao<PersonalFile> {
             personalFile.setId(resultSet.getInt("IDFILE"));
             personalFile.setNumber(resultSet.getString("FILE_NUMBER"));
             personalFile.setIdStudent(resultSet.getInt("STUDENT"));
-            personalFile.setEntryDate(resultSet.getDate("ENTRY_DATE"));
-            personalFile.setGradDate(resultSet.getDate("GRAD_DATE"));
+            personalFile.setEntryDate(resultSet.getDate("ENTRY_DATE").toLocalDate());
+            personalFile.setGradDate(resultSet.getDate("GRAD_DATE").toLocalDate());
 
             preparedStatement.executeUpdate();
 
@@ -61,8 +62,12 @@ public class PersonalFileService extends Util implements Dao<PersonalFile> {
                 personalFile.setId(resultSet.getInt("IDFILE"));
                 personalFile.setNumber(resultSet.getString("FILE_NUMBER"));
                 personalFile.setIdStudent(resultSet.getInt("STUDENT"));
-                personalFile.setEntryDate(resultSet.getDate("ENTRY_DATE"));
-                personalFile.setGradDate(resultSet.getDate("GRAD_DATE"));
+                personalFile.setEntryDate( resultSet.getDate("ENTRY_DATE").toLocalDate());
+                try {
+                    personalFile.setGradDate(resultSet.getDate("GRAD_DATE").toLocalDate());
+                } catch (NullPointerException e){
+                    personalFile.setGradDate(null);
+                }
                 personalFileList.add(personalFile);
             }
         }catch (SQLException e){
@@ -82,27 +87,20 @@ public class PersonalFileService extends Util implements Dao<PersonalFile> {
     @Override
     public void add(PersonalFile personalFile) throws SQLException {
         PreparedStatement preparedStatement = null;
-        String sql = "INSERT INTO PERSONAL_FILE (FILE_NUMBER, STUDENT, ENTRY_DATE, GRAD_DATE) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO PERSONAL_FILE (IDFILE, FILE_NUMBER, STUDENT, ENTRY_DATE, GRAD_DATE) VALUES (?, ?, ?, ?, ?)";
 
         try {
             preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, personalFile.getNumber());
-            preparedStatement.setInt(2, personalFile.getIdStudent());
-            preparedStatement.setDate(3, (Date) personalFile.getEntryDate());
-            preparedStatement.setDate(4, (Date)personalFile.getGradDate());
+            preparedStatement.setInt(1, personalFile.getId());
+            preparedStatement.setString(2, personalFile.getNumber());
+            preparedStatement.setInt(3, personalFile.getIdStudent());
+            preparedStatement.setDate(4, Date.valueOf(personalFile.getEntryDate()));
+            if(personalFile.getGradDate() == null) {
+                preparedStatement.setDate(5, Date.valueOf(personalFile.getEntryDate()));
+            }else{
+                preparedStatement.setDate(5, Date.valueOf(personalFile.getGradDate()));
+            }
             preparedStatement.executeUpdate();
-
-            sql = "SELECT IDFILE FROM PERSONAL_FILE WHERE FILE_NUMBER=? AND STUDENT=? AND ENTRY_DATE=? AND GRAD_DATE=?";
-
-            preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, personalFile.getNumber());
-            preparedStatement.setInt(2, personalFile.getIdStudent());
-            preparedStatement.setDate(3, (Date) personalFile.getEntryDate());
-            preparedStatement.setDate(4,(Date) personalFile.getGradDate());
-            ResultSet resultSet = preparedStatement.executeQuery();
-
-            personalFile.setId(resultSet.getInt("IDFILE"));
-
         }catch (SQLException e){
             e.printStackTrace();
         } finally {
@@ -124,8 +122,8 @@ public class PersonalFileService extends Util implements Dao<PersonalFile> {
 
             preparedStatement.setString(1, personalFile.getNumber());
             preparedStatement.setInt(2, personalFile.getIdStudent());
-            preparedStatement.setDate(3, (Date) personalFile.getEntryDate());
-            preparedStatement.setDate(4, (Date)personalFile.getGradDate());
+            preparedStatement.setDate(3, Date.valueOf(personalFile.getEntryDate()));
+            preparedStatement.setDate(4, Date.valueOf(personalFile.getGradDate()));
             preparedStatement.setInt(5, personalFile.getId());
 
             preparedStatement.executeUpdate();

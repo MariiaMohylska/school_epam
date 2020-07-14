@@ -70,8 +70,10 @@ public class ClassLogic {
 
         if((numberClass>=65)&&(numberClass<=90)) {
             List<Classes> classesList = new ClassesService().getAll();
+            int maxId = 0;
             int classPresent = 0;
             for(Classes classes : classesList){
+                maxId = (classes.getId()>= maxId) ? classes.getId() : maxId;
                 if(classes.getClasses() == classNumber)
                 {
                     classPresent = 1;
@@ -81,7 +83,7 @@ public class ClassLogic {
             if(classPresent == 0)
             {
                 Classes classes = new Classes();
-                classes.setId(classesList.size()+1);
+                classes.setId(maxId+1);
                 classes.setClasses(classNumber);
                 new ClassesService().add(classes);
                 status = true;

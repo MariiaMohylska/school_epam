@@ -7,6 +7,8 @@ model\service\ClassesService.class
 model\Util.class
 model\logic\ClassLogic.class
 model\service\StudentService.class
+model\logic\StudentShort.class
+model\logic\PhoneLogic.class
 model\service\AddressService.class
 model\entity\Mark.class
 controller\ShowClassServet.class
@@ -16,13 +18,17 @@ model\entity\Name.class
 controller\DeleteClassServlet.class
 model\entity\PersonalFile.class
 model\ClassEnum.class
+model\logic\AddressLogic.class
 model\entity\Phone.class
 model\service\PhoneService.class
 model\service\NameService.class
 model\entity\Address.class
 model\entity\Student.class
+model\logic\NameLogic.class
+controller\AddStudentServlet.class
 controller\StudentInClassServlet.class
 model\service\SubjectService.class
+model\logic\PersonalFileLogic.class
 model\logic\NewStudent.class
 controller\AddClassServlet.class
 model\entity\SubjClass.class

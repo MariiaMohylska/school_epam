@@ -28,7 +28,7 @@ public class StudentService extends Util implements Dao<Student> {
             student.setIdName(resultSet.getInt("NAME"));
             student.setIdAddress(resultSet.getInt("ADDRESS"));
             student.setIdClass(resultSet.getInt("CLASS"));
-            student.setBDay(resultSet.getDate("BDAY"));
+            student.setBDay(resultSet.getDate("BDAY").toLocalDate());
 
             preparedStatement.executeUpdate();
 
@@ -63,7 +63,7 @@ public class StudentService extends Util implements Dao<Student> {
                 student.setIdName(resultSet.getInt("NAME"));
                 student.setIdAddress(resultSet.getInt("ADDRESS"));
                 student.setIdClass(resultSet.getInt("CLASS"));
-                student.setBDay(resultSet.getDate("BDAY"));
+                student.setBDay(resultSet.getDate("BDAY").toLocalDate());
                 studentList.add(student);
             }
         }catch (SQLException e){
@@ -83,27 +83,16 @@ public class StudentService extends Util implements Dao<Student> {
     @Override
     public void add(Student student) throws SQLException {
         PreparedStatement preparedStatement = null;
-        String sql = "INSERT INTO STUDENT (NAME, ADDRESS, CLASS, BDAY) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO STUDENT (IDSTUDENT, NAME, ADDRESS, CLASS, BDAY) VALUES (?, ?, ?, ?, ?)";
 
         try {
             preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1, student.getIdName());
-            preparedStatement.setInt(2, student.getIdAddress());
-            preparedStatement.setInt(3, student.getIdClass());
-            preparedStatement.setDate(4, (Date) student.getBDay());
+            preparedStatement.setInt(1, student.getId());
+            preparedStatement.setInt(2, student.getIdName());
+            preparedStatement.setInt(3, student.getIdAddress());
+            preparedStatement.setInt(4, student.getIdClass());
+            preparedStatement.setDate(5, Date.valueOf(student.getBDay()));
             preparedStatement.executeUpdate();
-
-            sql = "SELECT IDSTUDENT FROM STUDENT WHERE NAME=? AND ADDRESS=? AND CLASS=? AND BDAY=?";
-
-            preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1, student.getIdName());
-            preparedStatement.setInt(2, student.getIdAddress());
-            preparedStatement.setInt(3, student.getIdClass());
-            preparedStatement.setDate(4, (Date) student.getBDay());
-            ResultSet resultSet = preparedStatement.executeQuery();
-
-            student.setId(resultSet.getInt("IDSTUDENT"));
-
         }catch (SQLException e){
             e.printStackTrace();
         } finally {
@@ -126,7 +115,7 @@ public class StudentService extends Util implements Dao<Student> {
             preparedStatement.setInt(1, student.getIdName());
             preparedStatement.setInt(2, student.getIdAddress());
             preparedStatement.setInt(3, student.getIdClass());
-            preparedStatement.setDate(4, (Date) student.getBDay());
+            preparedStatement.setDate(4, Date.valueOf( student.getBDay()));
             preparedStatement.setInt(5, student.getId());
 
             preparedStatement.executeUpdate();

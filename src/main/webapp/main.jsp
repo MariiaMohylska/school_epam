@@ -21,6 +21,7 @@
                         <td>
                                 <form method="get" action="students">
                                         <input type="submit" name="class" value="<%=c.getClasses()%>" />
+                                         <input type="number" hidden name="classId" value="<%=c.getId()%>" />
                                 </form>
                                 <form method="post" action="deleteClass">
                                         <input type="number" hidden name="classForDelete" value="<%=c.getId()%>" />

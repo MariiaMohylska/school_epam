@@ -49,4 +49,13 @@
     <servlet-name>DeleteClassServlet</servlet-name>
     <url-pattern>/deleteClass</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <servlet-name>AddStudentServlet</servlet-name>
+    <servlet-class>controller.AddStudentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddStudentServlet</servlet-name>
+    <url-pattern>/addStudent</url-pattern>
+  </servlet-mapping>
 </web-app>
