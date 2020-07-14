@@ -28,6 +28,7 @@ public class StudentLogic {
         for(Student student : studentList){
             StudentShort studentShort = new StudentShort();
             studentShort.setBDay(student.getBDay());
+            studentShort.setId(student.getId());
             List<String> phone = new ArrayList<>();
 
             for(Phone phoneCycle : phoneList){

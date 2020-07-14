@@ -55,7 +55,7 @@ public class AddStudentServlet extends HttpServlet {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        resp.sendRedirect(req.getContextPath() + "/students");
+        resp.sendRedirect(req.getContextPath() + "/main");
 
     }
 

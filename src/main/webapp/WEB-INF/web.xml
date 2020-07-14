@@ -58,4 +58,14 @@
     <servlet-name>AddStudentServlet</servlet-name>
     <url-pattern>/addStudent</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <servlet-name>DeleteStudent</servlet-name>
+    <servlet-class>controller.DeleteStudent</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteStudent</servlet-name>
+    <url-pattern>/deleteStudent</url-pattern>
+  </servlet-mapping>
+
 </web-app>

@@ -69,7 +69,15 @@ Name
                      <br/>
                      <input type="button" value="View marks">
                      <br/>
-                     <input type="button" value="Delete">
+                     <%try{String classNumber = (String)request.getAttribute("classNumber");%>
+                      <form method="post" action="deleteStudent">
+                         <input type="number" hidden name="StudentForDelete" value="<%=student.getId()%>" />
+                          <input type="number" hidden name="classN" value="<%=classNumber%>" />
+                         <input type="submit" name="delete" value="Delete"/>
+                       </form>
+                       <%}catch(Exception e){
+                        e.printStackTrace();
+                        }%>
                      <br/>
                      <br/>
                      </td>

@@ -9,6 +9,7 @@ model\logic\ClassLogic.class
 model\service\StudentService.class
 model\logic\StudentShort.class
 model\logic\PhoneLogic.class
+controller\DeleteStudent.class
 model\service\AddressService.class
 model\entity\Mark.class
 controller\ShowClassServet.class

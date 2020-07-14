@@ -18,7 +18,12 @@ public class StudentInClassServlet extends HttpServlet {
     private final  static String index = "/students.jsp";
 
     private List<StudentShort> studentList;
+    static String classNumber;
 
+    @Override
+    public void init() throws ServletException {
+
+    }
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
@@ -29,7 +34,8 @@ public class StudentInClassServlet extends HttpServlet {
             System.out.println("Problem retrieving data from database");
             e.printStackTrace();
         }
-        final String classNumber = req.getParameter("class");
+
+        classNumber = req.getParameter("class");
         final String clasId = req.getParameter("classId");
         List<StudentShort> studentShortList = new ArrayList<>();
         for(StudentShort student: studentList){
@@ -43,3 +49,11 @@ public class StudentInClassServlet extends HttpServlet {
     }
 
 }
+//try {
+//            classesList = new ClassesService().getAll();
+//        } catch (SQLException e) {
+//            System.out.println("Problem retrieving data from database");
+//            e.printStackTrace();
+//        }
+//        req.setAttribute("classes", classesList);
+//        req.getRequestDispatcher(index).forward(req, resp);

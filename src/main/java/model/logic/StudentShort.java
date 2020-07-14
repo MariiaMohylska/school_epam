@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class StudentShort {
+    private int id;
     private String FileNumber;
     private String Surname;
     private String Name;
@@ -14,6 +15,14 @@ public class StudentShort {
     private String classNumber;
     private LocalDate BDay;
     private List<String> phone = new ArrayList<>();
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getFileNumber() {
         return FileNumber;
@@ -76,7 +85,8 @@ public class StudentShort {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         StudentShort that = (StudentShort) o;
-        return Objects.equals(FileNumber, that.FileNumber) &&
+        return id == that.id &&
+                Objects.equals(FileNumber, that.FileNumber) &&
                 Objects.equals(Surname, that.Surname) &&
                 Objects.equals(Name, that.Name) &&
                 Objects.equals(FatherName, that.FatherName) &&
@@ -87,13 +97,14 @@ public class StudentShort {
 
     @Override
     public int hashCode() {
-        return Objects.hash(FileNumber, Surname, Name, FatherName, classNumber, BDay, phone);
+        return Objects.hash(id, FileNumber, Surname, Name, FatherName, classNumber, BDay, phone);
     }
 
     @Override
     public String toString() {
-        return "NewStudent{" +
-                "FileNumber='" + FileNumber + '\'' +
+        return "StudentShort{" +
+                "id=" + id +
+                ", FileNumber='" + FileNumber + '\'' +
                 ", Surname='" + Surname + '\'' +
                 ", Name='" + Name + '\'' +
                 ", FatherName='" + FatherName + '\'' +
