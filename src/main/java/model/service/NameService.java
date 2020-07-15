@@ -22,13 +22,13 @@ public class NameService extends Util implements Dao<Name> {
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
-
-            name.setId(resultSet.getInt("IDNAME"));
-            name.setSurname(resultSet.getString("SURNAME"));
-            name.setName(resultSet.getString("NAME"));
-            name.setFatherName(resultSet.getString("FATHER_NAME"));
-
-            preparedStatement.executeUpdate();
+            if (resultSet.next()) {
+                name.setId(resultSet.getInt("IDNAME"));
+                name.setSurname(resultSet.getString("SURNAME"));
+                name.setName(resultSet.getString("NAME"));
+                name.setFatherName(resultSet.getString("FATHER_NAME"));
+            }
+//            preparedStatement.executeUpdate();
 
         }catch (SQLException e){
             e.printStackTrace();

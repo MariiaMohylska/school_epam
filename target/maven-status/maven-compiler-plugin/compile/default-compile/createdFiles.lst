@@ -1,5 +1,6 @@
 model\entity\Classes.class
 model\service\PersonalFileService.class
+controller\EditStudentServlet.class
 model\dao\Dao.class
 model\service\SubjClassService.class
 model\logic\StudentLogic.class
@@ -8,6 +9,7 @@ model\Util.class
 model\logic\ClassLogic.class
 model\service\StudentService.class
 model\logic\StudentShort.class
+controller\ViewDetailsStudent.class
 model\logic\PhoneLogic.class
 controller\DeleteStudent.class
 model\service\AddressService.class
@@ -26,10 +28,12 @@ model\service\NameService.class
 model\entity\Address.class
 model\entity\Student.class
 model\logic\NameLogic.class
+model\logic\RepresentationLogic.class
 controller\AddStudentServlet.class
 controller\StudentInClassServlet.class
 model\service\SubjectService.class
 model\logic\PersonalFileLogic.class
+model\logic\NewStudentObject.class
 model\logic\NewStudent.class
 controller\AddClassServlet.class
 model\entity\SubjClass.class

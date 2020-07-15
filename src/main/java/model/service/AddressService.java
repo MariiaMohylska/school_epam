@@ -23,14 +23,14 @@ public class AddressService extends Util implements Dao<Address> {
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
-
-            address.setId(resultSet.getInt("IDADDRESS"));
-            address.setCity(resultSet.getString("CITY"));
-            address.setStreet(resultSet.getString("STREET"));
-            address.setHouse(resultSet.getString("HOUSE"));
-            address.setFlat(resultSet.getString("FLAT"));
-
-            preparedStatement.executeUpdate();
+            if (resultSet.next()) {
+                address.setId(resultSet.getInt("IDADDRESS"));
+                address.setCity(resultSet.getString("CITY"));
+                address.setStreet(resultSet.getString("STREET"));
+                address.setHouse(resultSet.getString("HOUSE"));
+                address.setFlat(resultSet.getString("FLAT"));
+            }
+//            preparedStatement.executeUpdate();
 
         }catch (SQLException e){
             e.printStackTrace();

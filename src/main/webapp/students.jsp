@@ -65,8 +65,12 @@ Name
                    </td>
                    <td>
                    <br/>
-                     <input type="button" value="Edit">
+                   <form method="get" action="viewDetails">
+                      <input type="number" hidden name="StudentView" value="<%=student.getId()%>" />
+                     <input type="submit" value="View details & Edit">
+                    </form>
                      <br/>
+
                      <input type="button" value="View marks">
                      <br/>
                      <%try{String classNumber = (String)request.getAttribute("classNumber");%>

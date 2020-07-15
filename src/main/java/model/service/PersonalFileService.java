@@ -23,14 +23,14 @@ public class PersonalFileService extends Util implements Dao<PersonalFile> {
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
-
-            personalFile.setId(resultSet.getInt("IDFILE"));
-            personalFile.setNumber(resultSet.getString("FILE_NUMBER"));
-            personalFile.setIdStudent(resultSet.getInt("STUDENT"));
-            personalFile.setEntryDate(resultSet.getDate("ENTRY_DATE").toLocalDate());
-            personalFile.setGradDate(resultSet.getDate("GRAD_DATE").toLocalDate());
-
-            preparedStatement.executeUpdate();
+            if (resultSet.next()) {
+                personalFile.setId(resultSet.getInt("IDFILE"));
+                personalFile.setNumber(resultSet.getString("FILE_NUMBER"));
+                personalFile.setIdStudent(resultSet.getInt("STUDENT"));
+                personalFile.setEntryDate(resultSet.getDate("ENTRY_DATE").toLocalDate());
+                personalFile.setGradDate(resultSet.getDate("GRAD_DATE").toLocalDate());
+            }
+//            preparedStatement.executeUpdate();
 
         }catch (SQLException e){
             e.printStackTrace();

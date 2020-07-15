@@ -27,7 +27,7 @@ public class SubjClassService extends Util implements Dao<SubjClass> {
             subjClass.setIdSubject(resultSet.getInt("SUBJECT"));
             subjClass.setIdClass(resultSet.getInt("CLASS"));
 
-            preparedStatement.executeUpdate();
+//            preparedStatement.executeUpdate();
 
         }catch (SQLException e){
             e.printStackTrace();

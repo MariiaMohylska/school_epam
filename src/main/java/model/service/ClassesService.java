@@ -20,14 +20,14 @@ public class ClassesService extends Util implements Dao<Classes> {
         Classes classes = new Classes();
         try {
 
-            preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1, id);
+                preparedStatement = connection.prepareStatement(sql);
+                preparedStatement.setInt(1, id);
 
-            ResultSet resultSet = preparedStatement.executeQuery();
-
-            classes.setId(resultSet.getInt("IDCLASS"));
-            classes.setClasses(resultSet.getString("CLASS"));
-
+                ResultSet resultSet = preparedStatement.executeQuery();
+                if (resultSet.next()) {
+                classes.setId(resultSet.getInt("IDCLASS"));
+                classes.setClasses(resultSet.getString("CLASS"));
+            }
 //            preparedStatement.executeUpdate();
 
         }catch (SQLException e){

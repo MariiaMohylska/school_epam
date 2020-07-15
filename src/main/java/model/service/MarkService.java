@@ -27,7 +27,7 @@ public class MarkService extends Util implements Dao<Mark> {
             mark.setIdSubjClass(resultSet.getInt("SUBJCLASS"));
             mark.setIdStudent(resultSet.getInt("STUDENT"));
             mark.setMark(resultSet.getInt("MARK"));
-            preparedStatement.executeUpdate();
+//            preparedStatement.executeUpdate();
 
         }catch (SQLException e){
             e.printStackTrace();

@@ -1,6 +1,7 @@
 package controller;
 
 import model.logic.NewStudent;
+import model.logic.RepresentationLogic;
 import model.logic.StudentLogic;
 import model.logic.StudentShort;
 
@@ -28,7 +29,7 @@ public class StudentInClassServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         try {
-            studentList = StudentLogic.getRepresentation();
+            studentList = RepresentationLogic.getRepresentation();
 
         } catch (SQLException e) {
             System.out.println("Problem retrieving data from database");

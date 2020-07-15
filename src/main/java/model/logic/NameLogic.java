@@ -22,4 +22,17 @@ public class NameLogic {
         }
 
     }
+
+    public void EditName(Name name) throws SQLException{
+
+        if(name.getName().matches("^\\D+$")
+                && name.getSurname().matches("^\\D+$")
+                && name.getFatherName().matches("^\\D+$")) {
+
+            new NameService().update(name);
+
+        }else{
+//            Додати вивід про некорктне ім'я
+        }
+    }
 }

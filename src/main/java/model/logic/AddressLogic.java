@@ -19,4 +19,17 @@ public class AddressLogic {
         }
     }
 
+    public void EditAddress(Address address) throws SQLException {
+        if(address.getCity().matches("^\\D+$")
+                && address.getStreet().matches("^\\D+$")
+                && address.getHouse().matches("^\\d+\\D*$")
+                &&address.getFlat().matches("^\\d+\\D*$")) {
+
+            new AddressService().update(address);
+
+        }else{
+//            Додати вивід про некорктне ім'я
+        }
+    }
+
 }

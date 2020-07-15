@@ -7,19 +7,21 @@ import java.util.Date;
 import java.util.Objects;
 
 public class NewStudent  {
-
+    private  int id;
     private String surname;
     private String name;
     private String fatherName;
     private String classNumber;
     private String fileNumber;
     private LocalDate entryDate;
+    private LocalDate gradDate;
     private  String phoneNumber;
     private String city;
     private String street;
     private String house;
     private String flat;
     private LocalDate Bday;
+
 
     public NewStudent (){
 
@@ -121,17 +123,35 @@ public class NewStudent  {
         Bday = bday;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public LocalDate getGradDate() {
+        return gradDate;
+    }
+
+    public void setGradDate(LocalDate gradDate) {
+        this.gradDate = gradDate;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         NewStudent that = (NewStudent) o;
-        return Objects.equals(surname, that.surname) &&
+        return id == that.id &&
+                Objects.equals(surname, that.surname) &&
                 Objects.equals(name, that.name) &&
                 Objects.equals(fatherName, that.fatherName) &&
                 Objects.equals(classNumber, that.classNumber) &&
                 Objects.equals(fileNumber, that.fileNumber) &&
                 Objects.equals(entryDate, that.entryDate) &&
+                Objects.equals(gradDate, that.gradDate) &&
                 Objects.equals(phoneNumber, that.phoneNumber) &&
                 Objects.equals(city, that.city) &&
                 Objects.equals(street, that.street) &&
@@ -142,18 +162,20 @@ public class NewStudent  {
 
     @Override
     public int hashCode() {
-        return Objects.hash(surname, name, fatherName, classNumber, fileNumber, entryDate, phoneNumber, city, street, house, flat, Bday);
+        return Objects.hash(id, surname, name, fatherName, classNumber, fileNumber, entryDate, gradDate, phoneNumber, city, street, house, flat, Bday);
     }
 
     @Override
     public String toString() {
         return "NewStudent{" +
-                "surname='" + surname + '\'' +
+                "id=" + id +
+                ", surname='" + surname + '\'' +
                 ", name='" + name + '\'' +
                 ", fatherName='" + fatherName + '\'' +
                 ", classNumber='" + classNumber + '\'' +
                 ", fileNumber='" + fileNumber + '\'' +
                 ", entryDate=" + entryDate +
+                ", gradDate=" + gradDate +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", city='" + city + '\'' +
                 ", street='" + street + '\'' +

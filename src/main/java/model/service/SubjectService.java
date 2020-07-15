@@ -26,7 +26,7 @@ public class SubjectService extends Util implements Dao<Subject> {
             subject.setId(resultSet.getInt("IDSUBJECT"));
             subject.setSubjName(resultSet.getString("SUBJECT_NAME"));
 
-            preparedStatement.executeUpdate();
+//            preparedStatement.executeUpdate();
 
         }catch (SQLException e){
             e.printStackTrace();

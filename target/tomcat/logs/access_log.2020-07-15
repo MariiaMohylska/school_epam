@@ -1,0 +1,12 @@
+0:0:0:0:0:0:0:1 - - [15/Jul/2020:21:08:38 +0300] "GET / HTTP/1.1" 200 196 http-bio-8888-exec-1 396
+0:0:0:0:0:0:0:1 - - [15/Jul/2020:21:08:40 +0300] "GET /main HTTP/1.1" 200 6910 http-bio-8888-exec-3 225
+0:0:0:0:0:0:0:1 - - [15/Jul/2020:21:08:42 +0300] "GET /students?class=4B&classId=8 HTTP/1.1" 200 5151 http-bio-8888-exec-4 110
+0:0:0:0:0:0:0:1 - - [15/Jul/2020:21:08:44 +0300] "GET /viewDetails?StudentView=20 HTTP/1.1" 200 5010 http-bio-8888-exec-5 257
+0:0:0:0:0:0:0:1 - - [15/Jul/2020:21:09:30 +0300] "GET /viewDetails?StudentView=20 HTTP/1.1" 200 5017 http-bio-8888-exec-6 205
+0:0:0:0:0:0:0:1 - - [15/Jul/2020:21:09:52 +0300] "GET /viewDetails?StudentView=20 HTTP/1.1" 200 5017 http-bio-8888-exec-7 227
+0:0:0:0:0:0:0:1 - - [15/Jul/2020:21:10:04 +0300] "GET /viewDetails?StudentView=20 HTTP/1.1" 200 5017 http-bio-8888-exec-9 199
+0:0:0:0:0:0:0:1 - - [15/Jul/2020:21:11:02 +0300] "GET /viewDetails?StudentView=20 HTTP/1.1" 200 5026 http-bio-8888-exec-10 179
+0:0:0:0:0:0:0:1 - - [15/Jul/2020:21:11:52 +0300] "GET /students?class=5A&classId=9 HTTP/1.1" 200 2168 http-bio-8888-exec-10 79
+0:0:0:0:0:0:0:1 - - [15/Jul/2020:21:11:54 +0300] "GET /viewDetails?StudentView=25 HTTP/1.1" 200 5044 http-bio-8888-exec-10 314
+0:0:0:0:0:0:0:1 - - [15/Jul/2020:21:29:02 +0300] "GET / HTTP/1.1" 200 196 http-bio-8888-exec-2 5
+0:0:0:0:0:0:0:1 - - [15/Jul/2020:21:29:03 +0300] "GET /main HTTP/1.1" 200 6910 http-bio-8888-exec-2 48

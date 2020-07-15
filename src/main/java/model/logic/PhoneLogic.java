@@ -15,4 +15,14 @@ public class PhoneLogic {
 //            Додати вивід про некорктне ім'я
         }
     }
+
+    public void EditPhone(Phone phone) throws SQLException{
+        if(phone.getPhone().matches("[(]{1}\\d{3}[)]{1}\\d{3}[-]{1}\\d{2}[-]{1}\\d{2}")) {
+
+            new PhoneService().update(phone);
+
+        }else{
+//            Додати вивід про некорктне ім'я
+        }
+    }
 }

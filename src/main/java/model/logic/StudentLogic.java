@@ -2,6 +2,7 @@ package model.logic;
 
 import model.entity.*;
 import model.service.*;
+import org.graalvm.compiler.nodes.calc.IntegerDivRemNode;
 
 import java.sql.SQLException;
 import java.util.*;
@@ -9,65 +10,6 @@ import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class StudentLogic {
-
-    public static List<StudentShort> getRepresentation() throws SQLException {
-        List<StudentShort> studentShortList = new ArrayList<>();
-
-        ClassesService classesService = new ClassesService();
-        StudentService studentService = new StudentService();
-        NameService nameService = new NameService();
-        PersonalFileService personalFileService = new PersonalFileService();
-        PhoneService phoneService = new PhoneService();
-
-        List<Classes> classesList = classesService.getAll();
-        List<Student> studentList = studentService.getAll();
-        List<Name> nameList = nameService.getAll();
-        List<PersonalFile> personalFileList = personalFileService.getAll();
-        List<Phone> phoneList = phoneService.getAll();
-
-        for(Student student : studentList){
-            StudentShort studentShort = new StudentShort();
-            studentShort.setBDay(student.getBDay());
-            studentShort.setId(student.getId());
-            List<String> phone = new ArrayList<>();
-
-            for(Phone phoneCycle : phoneList){
-                if(phoneCycle.getIdStudent() == student.getId()){
-                    phone.add(phoneCycle.getPhone());
-                }
-            }
-            studentShort.setPhone(phone);
-
-            for(PersonalFile personalFile : personalFileList){
-                if(personalFile.getIdStudent() == student.getId()){
-                    studentShort.setFileNumber(personalFile.getNumber());
-                }
-            }
-
-            for(Classes classes : classesList){
-                if(classes.getId() == student.getIdClass()){
-                    studentShort.setClassNumber(classes.getClasses());
-                }
-            }
-
-            for(Name name: nameList){
-                if(name.getId() == student.getIdName()){
-                    studentShort.setSurname(name.getSurname());
-                    studentShort.setName(name.getName());
-                    studentShort.setFatherName(name.getFatherName());
-                }
-            }
-
-            studentShortList.add(studentShort);
-
-
-        }
-
-
-
-
-        return studentShortList;
-    }
 
     public static void AddStudent(NewStudent newStudent) throws SQLException {
         Student student = new Student();
@@ -125,6 +67,8 @@ public class StudentLogic {
 
         student.setIdAddress(address.getId());
 
+        new StudentService().add(student);
+
         Phone phone = new Phone();
         List<Phone> phoneList = new PhoneService().getAll();
         int phoneMaxId = 0;
@@ -136,9 +80,72 @@ public class StudentLogic {
         phone.setIdStudent(student.getId());
         phone.setPhone(newStudent.getPhoneNumber());
 
-        new StudentService().add(student);
         new PersonalFileLogic().AddPersonalFile(personalFile);
         new PhoneLogic().AddPhone(phone);
 
     }
+
+    public static void EditStudent(NewStudent newStudent) throws SQLException {
+        Student student = new Student();
+        List<Student> studentList = new StudentService().getAll();
+        for(Student std : studentList){
+            if(newStudent.getId() == std.getId()){
+                student = std;
+            }
+        }
+
+        PersonalFile personalFile = new PersonalFile();
+        List<PersonalFile> personalFileList = new PersonalFileService().getAll();
+        for(PersonalFile file : personalFileList){
+            if(file.getIdStudent() == student.getId()){
+                personalFile = file;
+            }
+        }
+
+        personalFile.setNumber(newStudent.getFileNumber());
+        personalFile.setEntryDate(newStudent.getEntryDate());
+        personalFile.setGradDate(newStudent.getGradDate());
+
+        Optional<Name> nameOptional = new NameService().get(student.getIdName());
+        if(nameOptional.isPresent()){
+            Name name = new Name();
+
+            name = nameOptional.get();
+            name.setSurname(newStudent.getSurname());
+            name.setName(newStudent.getName());
+            name.setFatherName(newStudent.getFatherName());
+            new NameLogic().EditName(name);
+        }
+
+
+
+        Optional<Address> addressOptional = new AddressService().get(student.getIdAddress());
+        Address address = new Address();
+        if(addressOptional.isPresent()){
+            address = addressOptional.get();
+            address.setCity(newStudent.getCity());
+            address.setStreet(newStudent.getStreet());
+            address.setHouse(newStudent.getHouse());
+            address.setFlat(newStudent.getFlat());
+
+            new AddressLogic().EditAddress(address);
+        }
+
+
+        Phone phone = new Phone();
+        List<Phone> phoneList = new PhoneService().getAll();
+
+        for(Phone ph:phoneList){
+           if(ph.getIdStudent() == student.getId()){
+               phone = ph;
+           }
+        }
+
+        phone.setPhone(newStudent.getPhoneNumber());
+
+        new PhoneLogic().EditPhone(phone);
+        new PersonalFileLogic().EditPersonalFile(personalFile);
+//        Personal FIle and Phone Edit
+    }
+
 }

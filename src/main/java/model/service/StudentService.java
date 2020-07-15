@@ -23,14 +23,14 @@ public class StudentService extends Util implements Dao<Student> {
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
-
-            student.setId(resultSet.getInt("IDSTUDENT"));
-            student.setIdName(resultSet.getInt("NAME"));
-            student.setIdAddress(resultSet.getInt("ADDRESS"));
-            student.setIdClass(resultSet.getInt("CLASS"));
-            student.setBDay(resultSet.getDate("BDAY").toLocalDate());
-
-            preparedStatement.executeUpdate();
+            if (resultSet.next()) {
+                student.setId(resultSet.getInt("IDSTUDENT"));
+                student.setIdName(resultSet.getInt("NAME"));
+                student.setIdAddress(resultSet.getInt("ADDRESS"));
+                student.setIdClass(resultSet.getInt("CLASS"));
+                student.setBDay(resultSet.getDate("BDAY").toLocalDate());
+            }
+//            preparedStatement.executeUpdate();
 
         }catch (SQLException e){
             e.printStackTrace();

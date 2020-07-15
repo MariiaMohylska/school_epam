@@ -22,12 +22,12 @@ public class PhoneService extends Util implements Dao<Phone> {
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
-
-            phone.setId(resultSet.getInt("IDPHONE"));
-            phone.setPhone(resultSet.getString("PHONE_NUMBER"));
-            phone.setIdStudent(resultSet.getInt("STUDENT"));
-
-            preparedStatement.executeUpdate();
+            if (resultSet.next()) {
+                phone.setId(resultSet.getInt("IDPHONE"));
+                phone.setPhone(resultSet.getString("PHONE_NUMBER"));
+                phone.setIdStudent(resultSet.getInt("STUDENT"));
+            }
+//            preparedStatement.executeUpdate();
 
         }catch (SQLException e){
             e.printStackTrace();
