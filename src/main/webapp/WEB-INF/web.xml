@@ -95,4 +95,22 @@
     <url-pattern>/editClassForStudent</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>EditName</servlet-name>
+    <servlet-class>controller.EditName</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditName</servlet-name>
+    <url-pattern>/editName</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>EditBday</servlet-name>
+    <servlet-class>controller.EditBday</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditBday</servlet-name>
+    <url-pattern>/editBday</url-pattern>
+  </servlet-mapping>
+
 </web-app>

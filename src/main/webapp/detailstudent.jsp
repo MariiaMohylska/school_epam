@@ -97,7 +97,8 @@
                     <td class="Value">
                                     </td>
                     <td>
-                        <input type="number" hidden name="nameID" value="<%=student.getName()%>" />
+                        <input type="number" hidden name="nameID" value="<%=student.getName().getId()%>" />
+                        <input type="number" hidden name="studentID" value="<%=student.getId()%>" />
                         <input type="submit" name="editName" value="Edit Name" class="button" />
                     </td>
             </tr>
@@ -134,7 +135,7 @@
         </table>
               <table>
         <tr>
-            <form mathod="get" action="editStudent">
+            <form mathod="get" action="editBday">
                 <td class="Descriprion">
                     <h2>Birthday &#9;</h2>
                 </td>
