@@ -1,12 +1,14 @@
 package model.logic;
 
 import model.entity.PersonalFile;
+import model.logic.LogicInterfaces.INameLogic;
+import model.logic.LogicInterfaces.IPersonalFileLogic;
 import model.service.PersonalFileService;
 
 import java.sql.SQLException;
 import java.util.List;
 
-public class PersonalFileLogic {
+public class PersonalFileLogic  implements IPersonalFileLogic {
 
     public void AddPersonalFile(PersonalFile personalFile) throws SQLException {
         String fileNumber = personalFile.getNumber();

@@ -2,6 +2,7 @@ package model.logic;
 
 import model.entity.Classes;
 import model.entity.Student;
+import model.logic.LogicInterfaces.IClassLogic;
 import model.service.ClassesService;
 import model.service.StudentService;
 import org.h2.jdbc.JdbcSQLNonTransientException;
@@ -11,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class ClassLogic {
+public class ClassLogic implements IClassLogic {
 
     public static void TransferAllClass(){
         StudentService studentService = new StudentService();
@@ -94,5 +95,17 @@ public class ClassLogic {
 
         return status;
     }
+
+    public Classes searchClassByName(String className) throws SQLException{
+        Classes classes = new Classes();
+        List<Classes> classesList = new ClassesService().getAll();
+        for(Classes cls : classesList){
+            if(cls.getClasses().equals(className)){
+                classes = cls;
+            }
+        }
+        return classes;
+    }
+
 
 }

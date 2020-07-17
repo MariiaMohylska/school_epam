@@ -1,11 +1,12 @@
 package model.logic;
 
 import model.entity.Address;
+import model.logic.LogicInterfaces.IAddressLogic;
 import model.service.AddressService;
 
 import java.sql.SQLException;
 
-public class AddressLogic {
+public class AddressLogic implements IAddressLogic {
     public void AddAdress(Address address) throws SQLException {
         if(address.getCity().matches("^\\D+$")
                 && address.getStreet().matches("^\\D+$")

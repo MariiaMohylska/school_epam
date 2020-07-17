@@ -8,6 +8,7 @@ model\service\ClassesService.class
 model\Util.class
 model\logic\ClassLogic.class
 model\service\StudentService.class
+model\logic\LogicInterfaces\IAddressLogic.class
 model\logic\StudentShort.class
 controller\ViewDetailsStudent.class
 model\logic\PhoneLogic.class
@@ -17,12 +18,16 @@ model\entity\Mark.class
 controller\ShowClassServet.class
 controller\TransferClass.class
 model\service\MarkService.class
+model\logic\LogicInterfaces\IStudentLogic.class
+model\logic\LogicInterfaces\IPersonalFileLogic.class
 model\entity\Name.class
 controller\DeleteClassServlet.class
 model\entity\PersonalFile.class
 model\ClassEnum.class
 model\logic\AddressLogic.class
 model\entity\Phone.class
+model\logic\LogicInterfaces\IClassLogic.class
+model\logic\LogicInterfaces\IPhoneLogic.class
 model\service\PhoneService.class
 model\service\NameService.class
 model\entity\Address.class
@@ -30,6 +35,7 @@ model\entity\Student.class
 model\logic\NameLogic.class
 model\logic\RepresentationLogic.class
 controller\AddStudentServlet.class
+controller\EditClassForStudent.class
 controller\StudentInClassServlet.class
 model\service\SubjectService.class
 model\logic\PersonalFileLogic.class
@@ -38,3 +44,5 @@ model\logic\NewStudent.class
 controller\AddClassServlet.class
 model\entity\SubjClass.class
 model\entity\Subject.class
+model\logic\LogicInterfaces\INameLogic.class
+controller\EditPerdonalFileServlet.class

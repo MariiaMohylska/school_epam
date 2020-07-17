@@ -1,6 +1,7 @@
 package model.logic;
 
 import model.entity.*;
+import model.logic.LogicInterfaces.IStudentLogic;
 import model.service.*;
 import org.graalvm.compiler.nodes.calc.IntegerDivRemNode;
 
@@ -9,7 +10,7 @@ import java.util.*;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
-public class StudentLogic {
+public class StudentLogic implements IStudentLogic {
 
     public static void AddStudent(NewStudent newStudent) throws SQLException {
         Student student = new Student();
@@ -146,6 +147,12 @@ public class StudentLogic {
         new PhoneLogic().EditPhone(phone);
         new PersonalFileLogic().EditPersonalFile(personalFile);
 //        Personal FIle and Phone Edit
+    }
+
+    public static void ChangeClass(Student student, String newClass) throws SQLException {
+        Classes classes = new ClassLogic().searchClassByName(newClass);
+        student.setIdClass(classes.getId());
+        new StudentService().update(student);
     }
 
 }

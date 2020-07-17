@@ -2,13 +2,14 @@ package model.logic;
 
 import model.entity.Name;
 import model.entity.PersonalFile;
+import model.logic.LogicInterfaces.INameLogic;
 import model.service.NameService;
 import model.service.PersonalFileService;
 
 import java.sql.SQLException;
 import java.util.List;
 
-public class NameLogic {
+public class NameLogic implements INameLogic {
     public void AddName(Name name) throws SQLException {
 
         if(name.getName().matches("^\\D+$")

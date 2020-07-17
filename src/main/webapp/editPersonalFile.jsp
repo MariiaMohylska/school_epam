@@ -2,7 +2,7 @@
 
                      <!DOCTYPE web-app
                              PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
-                     <html>
+<html>
 <head>
 <title>Easy Contact Form Responsive Widget Template | Home :: w3layouts</title>
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
@@ -15,7 +15,7 @@
 <style>
  body{
         background-color: #5bb9b8;
-        color: black;
+        font-color: black;
      }
      table{
      background-color:#89d4e9;
@@ -31,31 +31,29 @@
      }
     .button {
     	background-color:#5bb9b8;
-    	border-radius:28px;
-    	border:1px solid #89d4e9;
-    	display:inline-block;
-    	cursor:pointer;
-    	color:#ffffff;
-    	font-family:Arial;
-    	font-size:17px;
-    	padding:10px;
+            	border-radius:28px;
+            	border:1px solid #89d4e9;
+            	display:inline-block;
+            	cursor:pointer;
+            	color:#ffffff;
+            	font-family:Arial;
+            	font-size:17px;
+            	padding:10px;
     }
     .button:hover {
     	background-color:#5bb9a4;
-
       </style>
-<!--web-fonts-->
 </head>
                      <body>
                      <table>
-                        <form method="post" action="addClass">
+                        <form method="post" action="editPersonalFile">
                         <tr>
                         <td>
-                        <p>Enter Class Number:</p>
+                        <p>Enter new graduation date:</p>
                         </td>
                         <td>
                              <p>
-                                <input type="text" name="classNumber">
+                                <input type="date" name="gradDate">
                              </p>
                          </td>
                              <br/>
@@ -64,7 +62,7 @@
                         <td>
                         </td>
                         <td>
-                             <input type="submit" value="Add" class="button">
+                             <input type="submit" value="Edit" class="button">
                              </td>
                              </tr>
                         </form>

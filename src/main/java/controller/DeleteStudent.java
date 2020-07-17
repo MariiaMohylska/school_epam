@@ -1,9 +1,11 @@
 package controller;
 
 import model.entity.Address;
+import model.entity.Classes;
 import model.entity.Name;
 import model.entity.Student;
 import model.service.AddressService;
+import model.service.ClassesService;
 import model.service.NameService;
 import model.service.StudentService;
 
@@ -25,22 +27,23 @@ public class DeleteStudent extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 //
+        int studentID = Integer.parseInt(req.getParameter("StudentForDelete"));
             Student student = new Student();
             Address address = new Address();
             address.setId(student.getIdAddress());
             Name name = new Name();
             name.setId(student.getIdName());
-            student.setId(Integer.parseInt(req.getParameter("StudentForDelete")));
+            student.setId(studentID);
         try {
             new StudentService().delete(student);
             new AddressService().delete(address);
             new NameService().delete(name);
+        resp.sendRedirect(req.getContextPath() + "/main");
         } catch (SQLException e) {
             e.printStackTrace();
+        }catch (NullPointerException e){
+            e.printStackTrace();
         }
-//
-//        req.setAttribute("class",req.getParameter("classN"));
-        resp.sendRedirect(req.getContextPath() + "/main");
     }
 
 }
