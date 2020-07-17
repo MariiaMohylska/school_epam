@@ -131,4 +131,13 @@
     <url-pattern>/editPhone</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>ViewMarks</servlet-name>
+    <servlet-class>controller.ViewMarks</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewMarks</servlet-name>
+    <url-pattern>/viewMarks</url-pattern>
+  </servlet-mapping>
+
 </web-app>

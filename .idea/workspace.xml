@@ -3,77 +3,27 @@
   <component name="ChangeListManager">
     <list default="true" id="45bb1254-acdb-4ef4-bf57-9572b3c93257" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/logic/PhoneLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/logic/PhoneLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/logic/StudentLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/logic/StudentLogic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/addclass.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/addclass.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/addstudent.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/addstudent.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/detailstudent.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/detailstudent.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/AddClassServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/AddStudentServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/DeleteClassServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/DeleteStudent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/EditAddress.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/EditBday.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/EditClassForStudent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/EditName.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/EditPerdonalFileServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/EditStudentServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/ShowClassServet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/StudentInClassServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/TransferClass.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/ViewDetailsStudent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/ClassEnum.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/Util.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/dao/Dao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/entity/Address.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/entity/Classes.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/entity/Mark.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/entity/Name.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/entity/PersonalFile.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/entity/Phone.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/entity/Student.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/entity/SubjClass.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/entity/Subject.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/logic/AddressLogic.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/logic/ClassLogic.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/logic/LogicInterfaces/IAddressLogic.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/logic/LogicInterfaces/IClassLogic.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/logic/LogicInterfaces/INameLogic.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/logic/LogicInterfaces/IPersonalFileLogic.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/logic/LogicInterfaces/IPhoneLogic.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/logic/LogicInterfaces/IStudentLogic.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/logic/NameLogic.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/logic/NewStudent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/logic/NewStudentObject.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/logic/PersonalFileLogic.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/logic/PhoneLogic.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/logic/RepresentationLogic.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/logic/StudentLogic.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/logic/StudentShort.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/service/AddressService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/service/ClassesService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/service/MarkService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/service/NameService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/service/PersonalFileService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/service/PhoneService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/service/StudentService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/service/SubjClassService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/service/SubjectService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tomcat/conf/logging.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tomcat/conf/tomcat-users.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tomcat/conf/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tomcat/logs/access_log.2020-07-17" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/detailstudent_jsp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/detailstudent_jsp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/editAddress_jsp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/editAddress_jsp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/index_jsp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/index_jsp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/main_jsp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/main_jsp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/students_jsp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/students_jsp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/editAddress.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/editAddress.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/editBday.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/editBday.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/editClassForStudent.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/editClassForStudent.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/editName.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/editName.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/editPersonalFile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/editPersonalFile.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/editPhone.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/editPhone.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/main.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/students.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/students.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/logs/access_log.2020-07-17" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/logs/access_log.2020-07-17" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/addstudent_jsp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/addstudent_jsp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/index_jsp.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/index_jsp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/main_jsp.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/main_jsp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/students_jsp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/students_jsp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/students_jsp.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/students_jsp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +62,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="D:/JavaSql" />
+    <property name="last_opened_file_path" value="D:/My web app-browser" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
@@ -185,26 +135,26 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594743908903" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1594916337344">
+    <state x="740" y="275" width="440" height="743" key="FileChooserDialogImpl" timestamp="1594980760729">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1594916337344" />
-    <state width="1877" height="129" key="GridCell.Tab.0.bottom" timestamp="1594980320619">
+    <state x="740" y="275" width="440" height="743" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1594980760729" />
+    <state width="1877" height="129" key="GridCell.Tab.0.bottom" timestamp="1594981277145">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="129" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594980320619" />
-    <state width="1877" height="129" key="GridCell.Tab.0.center" timestamp="1594980320618">
+    <state width="1877" height="129" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594981277145" />
+    <state width="1877" height="129" key="GridCell.Tab.0.center" timestamp="1594981277145">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="129" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594980320618" />
-    <state width="1877" height="129" key="GridCell.Tab.0.left" timestamp="1594980320618">
+    <state width="1877" height="129" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594981277145" />
+    <state width="1877" height="129" key="GridCell.Tab.0.left" timestamp="1594981277144">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="129" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594980320618" />
-    <state width="1877" height="129" key="GridCell.Tab.0.right" timestamp="1594980320618">
+    <state width="1877" height="129" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594981277144" />
+    <state width="1877" height="129" key="GridCell.Tab.0.right" timestamp="1594981277145">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="129" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594980320618" />
+    <state width="1877" height="129" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594981277145" />
     <state width="1877" height="213" key="GridCell.Tab.1.bottom" timestamp="1594975817267">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

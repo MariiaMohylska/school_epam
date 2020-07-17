@@ -9,7 +9,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Start</title>
+  <title>Students</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
@@ -102,8 +102,9 @@ Name
                      <input type="submit" value="View details & Edit" class="button">
                     </form>
                      <br/>
-
-                     <input type="button" value="View marks" class="button">
+                        <form method="get" action="viewMarks">
+                     <input type="submit" value="View marks" class="button">
+                     </form>
                      <br/>
                      <%try{String classNumber = (String)request.getAttribute("classNumber");%>
                       <form method="post" action="deleteStudent">

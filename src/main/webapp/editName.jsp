@@ -5,7 +5,7 @@
         PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
 <html>
 <head>
-<title>Easy Contact Form Responsive Widget Template | Home :: w3layouts</title>
+<title>Edit Name</title>
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
