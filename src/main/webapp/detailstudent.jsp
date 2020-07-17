@@ -198,7 +198,7 @@
         </table>
         <table>
         <br />
-        <form mathod="get" action="editPhone">
+
             <td class="Descriprion">
                 <h2>Phone</h2>
             </td>
@@ -206,11 +206,12 @@
                 <p><%=student.getPhone().getPhone()%></p>
             </td>
             <td>
-                <input type="number" hidden name="phoneID" value="<%=student.getPhone()%>" />
-                <input type="submit" name="editPhone" value="Edit Phone" class="button"/>
+                <form mathod="get" action="editPhone">
+                    <input type="number" hidden name="phoneID" value="<%=student.getPhone().getId()%>" />
+                    <input type="submit" name="editPhone" value="Edit Phone" class="button"/>
+                </form>
             </td>
             </tr>
-        </form>
         <tr>
             <hr/>
         </tr>

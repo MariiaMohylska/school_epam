@@ -113,14 +113,22 @@
     <url-pattern>/editBday</url-pattern>
   </servlet-mapping>
 
-
-  <servlet>
+ <servlet>
     <servlet-name>EditAddress</servlet-name>
     <servlet-class>controller.EditAddress</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>EditAddress</servlet-name>
     <url-pattern>/editAddress</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>EditPhone</servlet-name>
+    <servlet-class>controller.EditPhone</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditPhone</servlet-name>
+    <url-pattern>/editPhone</url-pattern>
   </servlet-mapping>
 
 </web-app>

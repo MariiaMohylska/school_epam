@@ -30,6 +30,7 @@ model\logic\StudentLogic.class
 model\logic\ClassLogic.class
 model\logic\StudentShort.class
 model\logic\PhoneLogic.class
+controller\EditPhone.class
 controller\ShowClassServet.class
 controller\TransferClass.class
 model\logic\LogicInterfaces\IStudentLogic.class

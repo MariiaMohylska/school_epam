@@ -71,13 +71,6 @@ public class StudentLogic implements IStudentLogic {
         new StudentService().add(student);
 
         Phone phone = new Phone();
-        List<Phone> phoneList = new PhoneService().getAll();
-        int phoneMaxId = 0;
-        for(Phone ph:phoneList){
-            phoneMaxId = (ph.getId()>phoneMaxId) ? ph.getId() : phoneMaxId;
-        }
-
-        phone.setId(phoneMaxId+1);
         phone.setIdStudent(student.getId());
         phone.setPhone(newStudent.getPhoneNumber());
 
