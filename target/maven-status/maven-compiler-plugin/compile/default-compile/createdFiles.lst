@@ -2,6 +2,7 @@ model\service\PersonalFileService.class
 controller\EditStudentServlet.class
 model\service\ClassesService.class
 model\Util.class
+controller\EditAddress.class
 model\service\StudentService.class
 model\logic\LogicInterfaces\IAddressLogic.class
 controller\ViewDetailsStudent.class

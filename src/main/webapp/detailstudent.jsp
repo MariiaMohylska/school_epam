@@ -162,7 +162,8 @@
                 <td class="Value">
                 </td>
                 <td>
-                    <input type="number" hidden name="addressID" value="<%=student.getAddress()%>" />
+                    <input type="number" hidden name="addressID" value="<%=student.getAddress().getId()%>" />
+                    <input type="number" hidden name="studentID" value="<%=student.getId()%>" />
                     <input type="submit" name="editAddress" value="Edit Address" class="button"/>
                 </td>
             </form>
