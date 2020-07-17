@@ -1,10 +1,16 @@
 package controller;
 
+import model.entity.Address;
 import model.entity.Classes;
+import model.entity.Name;
+import model.entity.Student;
 import model.logic.ClassLogic;
 import model.logic.NewStudent;
 import model.logic.StudentLogic;
+import model.service.AddressService;
 import model.service.ClassesService;
+import model.service.NameService;
+import model.service.StudentService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -28,15 +34,15 @@ public class TransferClass extends HttpServlet {
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        ClassLogic.TransferAllClass();
-        ClassesService classesService = new ClassesService();
-        try {
-            classesList = classesService.getAll();
-        } catch (SQLException e) {
-            System.out.println("Problem retrieving data from database");
-            e.printStackTrace();
-        }
-        req.setAttribute("classes", classesList);
-        req.getRequestDispatcher(index).forward(req, resp);
+
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+            throws IOException {
+
+            new ClassLogic().TransferAllClass();
+            resp.sendRedirect(req.getContextPath() + "/main");
+
     }
 }

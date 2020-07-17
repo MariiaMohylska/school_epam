@@ -3,24 +3,56 @@
   <component name="ChangeListManager">
     <list default="true" id="45bb1254-acdb-4ef4-bf57-9572b3c93257" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/addclass.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/addclass.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/addstudent.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/addstudent.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/AddClassServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/AddClassServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/DeleteClassServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/DeleteClassServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ShowClassServet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ShowClassServet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/TransferClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/TransferClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/logic/AddressLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/logic/AddressLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/logic/ClassLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/logic/ClassLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/logic/LogicInterfaces/IAddressLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/logic/LogicInterfaces/IAddressLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/logic/LogicInterfaces/INameLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/logic/LogicInterfaces/INameLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/logic/LogicInterfaces/IPersonalFileLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/logic/LogicInterfaces/IPersonalFileLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/logic/NameLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/logic/NameLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/logic/PersonalFileLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/logic/PersonalFileLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/logic/StudentLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/logic/StudentLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/service/ClassesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/service/ClassesService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/detailstudent.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/detailstudent.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/editAddress.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/editAddress.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/editBday.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/editBday.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/editClassForStudent.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/editClassForStudent.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/editName.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/editName.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/editPersonalFile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/editPersonalFile.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/editPhone.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/editPhone.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/main.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/students.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/students.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/AddClassServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/AddClassServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/DeleteClassServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/DeleteClassServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/ShowClassServet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/ShowClassServet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/TransferClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/TransferClass.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/logic/AddressLogic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/logic/AddressLogic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/logic/ClassLogic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/logic/ClassLogic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/logic/LogicInterfaces/IAddressLogic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/logic/LogicInterfaces/IAddressLogic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/logic/LogicInterfaces/INameLogic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/logic/LogicInterfaces/INameLogic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/logic/LogicInterfaces/IPersonalFileLogic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/logic/LogicInterfaces/IPersonalFileLogic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/logic/NameLogic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/logic/NameLogic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/logic/PersonalFileLogic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/logic/PersonalFileLogic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/logic/StudentLogic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/logic/StudentLogic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/service/ClassesService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/service/ClassesService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/tomcat/logs/access_log.2020-07-17" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/logs/access_log.2020-07-17" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/addclass_jsp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/addclass_jsp.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/addstudent_jsp.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/addstudent_jsp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/detailstudent_jsp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/detailstudent_jsp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/editAddress_jsp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/editAddress_jsp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/editBday_jsp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/editBday_jsp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/editClassForStudent_jsp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/editClassForStudent_jsp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/editName_jsp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/editName_jsp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/editPersonalFile_jsp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/editPersonalFile_jsp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/editPhone_jsp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/editPhone_jsp.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/index_jsp.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/index_jsp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/main_jsp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/main_jsp.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/main_jsp.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/main_jsp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/students_jsp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/students_jsp.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/students_jsp.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/students_jsp.java" afterDir="false" />
@@ -62,7 +94,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="D:/My web app-browser" />
+    <property name="last_opened_file_path" value="D:/JavaSql" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
@@ -135,42 +167,42 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594743908903" />
-    <state x="740" y="275" width="440" height="743" key="FileChooserDialogImpl" timestamp="1594980760729">
+    <state x="740" y="275" width="440" height="743" key="FileChooserDialogImpl" timestamp="1594989769004">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" width="440" height="743" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1594980760729" />
-    <state width="1877" height="129" key="GridCell.Tab.0.bottom" timestamp="1594981277145">
+    <state x="740" y="275" width="440" height="743" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1594989769004" />
+    <state width="1877" height="155" key="GridCell.Tab.0.bottom" timestamp="1594996232897">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="129" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594981277145" />
-    <state width="1877" height="129" key="GridCell.Tab.0.center" timestamp="1594981277145">
+    <state width="1877" height="155" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594996232897" />
+    <state width="1877" height="155" key="GridCell.Tab.0.center" timestamp="1594996232897">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="129" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594981277145" />
-    <state width="1877" height="129" key="GridCell.Tab.0.left" timestamp="1594981277144">
+    <state width="1877" height="155" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594996232897" />
+    <state width="1877" height="155" key="GridCell.Tab.0.left" timestamp="1594996232897">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="129" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594981277144" />
-    <state width="1877" height="129" key="GridCell.Tab.0.right" timestamp="1594981277145">
+    <state width="1877" height="155" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594996232897" />
+    <state width="1877" height="155" key="GridCell.Tab.0.right" timestamp="1594996232897">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="129" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594981277145" />
-    <state width="1877" height="213" key="GridCell.Tab.1.bottom" timestamp="1594975817267">
+    <state width="1877" height="155" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594996232897" />
+    <state width="1877" height="176" key="GridCell.Tab.1.bottom" timestamp="1594994886088">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="213" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594975817267" />
-    <state width="1877" height="213" key="GridCell.Tab.1.center" timestamp="1594975817267">
+    <state width="1877" height="176" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594994886088" />
+    <state width="1877" height="176" key="GridCell.Tab.1.center" timestamp="1594994886087">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="213" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594975817267" />
-    <state width="1877" height="213" key="GridCell.Tab.1.left" timestamp="1594975817267">
+    <state width="1877" height="176" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594994886087" />
+    <state width="1877" height="176" key="GridCell.Tab.1.left" timestamp="1594994886087">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="213" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594975817267" />
-    <state width="1877" height="213" key="GridCell.Tab.1.right" timestamp="1594975817267">
+    <state width="1877" height="176" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594994886087" />
+    <state width="1877" height="176" key="GridCell.Tab.1.right" timestamp="1594994886088">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="213" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594975817267" />
+    <state width="1877" height="176" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594994886088" />
     <state x="970" y="178" key="Maven.ArtifactSearchDialog" timestamp="1594393908024">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -209,6 +241,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/model/service/SubjectService.java</url>
           <line>16</line>
           <option name="timeStamp" value="94" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/controller/AddClassServlet.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="285" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

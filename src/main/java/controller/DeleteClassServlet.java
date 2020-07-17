@@ -22,14 +22,13 @@ public class DeleteClassServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 
-            Classes classes = new Classes();
-            classes.setId(Integer.parseInt(req.getParameter("classForDelete")));
         try {
-            new ClassesService().delete(classes);
+            new ClassLogic().deleteClass(Integer.parseInt(req.getParameter("classForDelete")));
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
         resp.sendRedirect(req.getContextPath() + "/main");
     }
+
 }

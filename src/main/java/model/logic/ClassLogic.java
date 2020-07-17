@@ -1,53 +1,61 @@
 package model.logic;
 
 import model.entity.Classes;
+import model.entity.PersonalFile;
 import model.entity.Student;
 import model.logic.LogicInterfaces.IClassLogic;
 import model.service.ClassesService;
+import model.service.PersonalFileService;
 import model.service.StudentService;
 import org.h2.jdbc.JdbcSQLNonTransientException;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 public class ClassLogic implements IClassLogic {
 
-    public static void TransferAllClass(){
-        StudentService studentService = new StudentService();
-        ClassesService classesService = new ClassesService();
+    public void TransferAllClass(){
 
         try {
-            List<Student> studentList = studentService.getAll();
-            List<Classes> classesList = classesService.getAll();
+            List<Student> studentList = new StudentService().getAll();
+            List<Classes> classesList = new ClassesService().getAll();
             for(Student student : studentList){
-                Optional<Classes> optional = classesService.get(student.getIdClass());
-                Classes classes = null;
+                if(student.getIdClass() != new ClassesService().GRADUATED) {
+                    Optional<Classes> optional = new ClassesService().get(student.getIdClass());
+                    Classes classes = null;
 
-                if(optional.isPresent()){
-                    classes = optional.get();
-                }
-
-                String previousClassNumber = classes.getClasses();
-                char[] splitClass = previousClassNumber.toCharArray();
-                int numberClass = (int)splitClass[0] + 1;
-                String newClassNumber = numberClass + "" + splitClass[1];
-                int idNewClass = 0;
-                for(Classes clas :  classesList){
-                    if(clas.getClasses() == newClassNumber){
-                        idNewClass = clas.getId();
+                    if (optional.isPresent()) {
+                        classes = optional.get();
                     }
-                }
+                    String newClassNumber;
+                    String previousClassNumber = classes.getClasses();
+                    char[] splitClass = previousClassNumber.toCharArray();
+                    int numberClass;
+                    if (splitClass.length == 3) {
+                        numberClass = Integer.parseInt((char)splitClass[0] + "" + (char) splitClass[1]) + 1;
+                        newClassNumber = (char) numberClass + "" + splitClass[2];
+                    } else {
+                        numberClass = (int) splitClass[0] + 1;
+                        newClassNumber = (char) numberClass + "" + splitClass[1];
+                    }
 
-                if(idNewClass == 0){
-                    Classes newClass = new Classes();
-                    newClass.setClasses(newClassNumber);
-                    idNewClass = newClass.getId();
+                    if (numberClass == 12) {
+                        PersonalFile personalFile = new PersonalFileLogic().serchByStudent(student.getId());
+                        personalFile.setGradDate(LocalDate.now());
+                        new PersonalFileService().update(personalFile);
+                        student.setIdClass(new ClassesService().GRADUATED);
+                    } else {
+                        classes = searchClassByName(newClassNumber);
+                        if (classes.getId() == 0) {
+                            classes = newClassAdd(newClassNumber);
+                        }
+                        student.setIdClass(classes.getId());
+                    }
+                    new StudentService().update(student);
                 }
-
-                student.setIdClass(idNewClass);
-                studentService.update(student);
             }
 
         } catch (SQLException e) {
@@ -61,21 +69,25 @@ public class ClassLogic implements IClassLogic {
     }
 
 
-    public static boolean newClassAdd (String classNumber) throws SQLException {
+    public Classes newClassAdd (String classNumber) throws SQLException {
 
-        boolean status = false;
-
+        Classes classes = new Classes();
         classNumber = classNumber.toUpperCase();
         char[] splitClassNumber = classNumber.toCharArray();
-        char numberClass = (char)splitClassNumber[1];
+        char numberClass;
+        if(splitClassNumber.length ==3){
+            numberClass = (char) splitClassNumber[2];
+        }else {
+           numberClass = (char) splitClassNumber[1];
+        }
 
         if((numberClass>=65)&&(numberClass<=90)) {
             List<Classes> classesList = new ClassesService().getAll();
             int maxId = 0;
             int classPresent = 0;
-            for(Classes classes : classesList){
-                maxId = (classes.getId()>= maxId) ? classes.getId() : maxId;
-                if(classes.getClasses() == classNumber)
+            for(Classes cls : classesList){
+                maxId = (cls.getId()>= maxId) ? cls.getId() : maxId;
+                if(cls.getClasses() == classNumber)
                 {
                     classPresent = 1;
                 }
@@ -83,17 +95,14 @@ public class ClassLogic implements IClassLogic {
 
             if(classPresent == 0)
             {
-                Classes classes = new Classes();
                 classes.setId(maxId+1);
                 classes.setClasses(classNumber);
                 new ClassesService().add(classes);
-                status = true;
             }
 
-//
         }
 
-        return status;
+        return classes;
     }
 
     public Classes searchClassByName(String className) throws SQLException{
@@ -105,6 +114,19 @@ public class ClassLogic implements IClassLogic {
             }
         }
         return classes;
+    }
+
+    public void deleteClass(int id) throws SQLException {
+        Classes classes = new Classes();
+        classes.setId(id);
+        List<Student> studentList = new StudentService().getAll();
+        for(Student student : studentList){
+            if(student.getIdClass() == id){
+                new StudentService().delete(student);
+            }
+        }
+        new ClassesService().delete(classes);
+
     }
 
 

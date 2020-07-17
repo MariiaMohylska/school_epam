@@ -10,8 +10,13 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class NameLogic implements INameLogic {
-    public void AddName(Name name) throws SQLException {
-
+    public Name AddName(Name name) throws SQLException {
+        List<Name> nameList = new NameService().getAll();
+        int nameMaxId = 0;
+        for(Name n: nameList){
+            nameMaxId = (n.getId()>nameMaxId) ? n.getId() : nameMaxId;
+        }
+        name.setId(nameMaxId+1);
         if(name.getName().matches("^\\D+$")
                 && name.getSurname().matches("^\\D+$")
                 && name.getFatherName().matches("^\\D+$")) {
@@ -21,7 +26,7 @@ public class NameLogic implements INameLogic {
         }else{
 //            Додати вивід про некорктне ім'я
         }
-
+        return name;
     }
 
     public void EditName(Name name) throws SQLException{

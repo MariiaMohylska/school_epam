@@ -23,52 +23,29 @@ public class StudentLogic implements IStudentLogic {
         student.setBDay(newStudent.getBday());
         student.setIdClass(Integer.parseInt(newStudent.getClassNumber()));
 
-        PersonalFile personalFile = new PersonalFile();
-        List<PersonalFile> personalFileList = new PersonalFileService().getAll();
-        int personelFileMaxId = 0;
-        for(PersonalFile file : personalFileList){
-            personelFileMaxId = (file.getId()>personelFileMaxId) ? file.getId() : personelFileMaxId;
-        }
-
-        personalFile.setId(personelFileMaxId + 1);
-        personalFile.setIdStudent(student.getId());
-        personalFile.setEntryDate(newStudent.getEntryDate());
-        personalFile.setNumber(newStudent.getFileNumber());
-
         Name name = new Name();
-        List<Name> nameList = new NameService().getAll();
-        int nameMaxId = 0;
-        for(Name n: nameList){
-            nameMaxId = (n.getId()>nameMaxId) ? n.getId() : nameMaxId;
-        }
-
-        name.setId(nameMaxId+1);
         name.setSurname(newStudent.getSurname());
         name.setName(newStudent.getName());
         name.setFatherName(newStudent.getFatherName());
 
-        new NameLogic().AddName(name);
-
-        student.setIdName(name.getId());
+        student.setIdName(new NameLogic().AddName(name).getId());
 
         Address address = new Address();
-        int addressMaxId = 0;
-        List<Address> addressList = new AddressService().getAll();
-        for(Address addr : addressList){
-            addressMaxId = (addr.getId()>addressMaxId) ? addr.getId() : addressMaxId;
-        }
 
-        address.setId(addressMaxId+1);
         address.setCity(newStudent.getCity());
         address.setStreet(newStudent.getStreet());
         address.setHouse(newStudent.getHouse());
         address.setFlat(newStudent.getFlat());
-
         new AddressLogic().AddAdress(address);
 
-        student.setIdAddress(address.getId());
+        student.setIdAddress(new AddressLogic().AddAdress(address).getId());
 
         new StudentService().add(student);
+
+        PersonalFile personalFile = new PersonalFile();
+        personalFile.setIdStudent(student.getId());
+        personalFile.setEntryDate(newStudent.getEntryDate());
+        personalFile.setNumber(newStudent.getFileNumber());
 
         Phone phone = new Phone();
         phone.setIdStudent(student.getId());

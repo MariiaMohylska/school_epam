@@ -15,6 +15,7 @@ public class ShowClassServet extends HttpServlet {
     private final  static String index = "/main.jsp";
 
     private List<Classes> classesList;
+    private Classes gradClass;
 
     @Override
     public void init() throws ServletException {
@@ -23,13 +24,17 @@ public class ShowClassServet extends HttpServlet {
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-//        ClassesService classesService = new ClassesService();
         try {
             classesList = new ClassesService().getAll();
+            gradClass = new ClassesService().get(new ClassesService().GRADUATED).get();
+            classesList.remove(gradClass);
         } catch (SQLException e) {
             System.out.println("Problem retrieving data from database");
             e.printStackTrace();
+        }catch (NullPointerException e){
+            e.printStackTrace();
         }
+        req.setAttribute("GradClass", gradClass);
         req.setAttribute("classes", classesList);
         req.getRequestDispatcher(index).forward(req, resp);
     }

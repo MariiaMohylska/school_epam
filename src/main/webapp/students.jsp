@@ -39,6 +39,8 @@
       </style>
 </head>
 <body>
+<a href="/main"><img src="https://www.pngkit.com/png/full/31-316559_white-home-icon-no-background.png" width="50"  height="50"></a>
+<br/>
 <main>
 <%try{String classNumber = (String)request.getAttribute("classNumber");%>
 <form method="get" action="addStudent">

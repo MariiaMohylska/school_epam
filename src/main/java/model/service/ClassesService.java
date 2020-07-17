@@ -12,7 +12,7 @@ import java.util.Optional;
 
 public class ClassesService extends Util implements Dao<Classes> {
     Connection connection = getConnection();
-
+    public static final int GRADUATED = 15;
     @Override
     public Optional<Classes> get(int id) throws SQLException {
         PreparedStatement preparedStatement = null;
@@ -49,7 +49,7 @@ public class ClassesService extends Util implements Dao<Classes> {
     public List<Classes> getAll() throws SQLException {
         List<Classes> classesList = new ArrayList<>();
 
-        String sql = "SELECT IDCLASS, CLASS FROM CLASS";
+        String sql = "SELECT IDCLASS, CLASS FROM CLASS ORDER BY CLASS";
 
         Statement statement = null;
         try{

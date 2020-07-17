@@ -66,8 +66,17 @@
         </table>
         </main>
         <br />
-         <form method="get" action="mainAfterTransfer">
-        <input type="button" value="Transfer all classes" class="button">
+        <%try{Classes c = (Classes)request.getAttribute("GradClass");%>
+            <form method="get" action="students">
+              <input type="submit" name="class" value="<%=c.getClasses()%>" class="button"/>
+               <input type="number" hidden name="classId" value="<%=c.getId()%>" />
+             </form>
+         <%}catch(Exception e){
+             e.printStackTrace();
+         }%>
+        <br />
+         <form method="post" action="mainAfterTransfer">
+        <input type="submit" value="Transfer all classes" class="button">
         </form>
          <form method="get" action="addClass">
         <input type="submit" value="Add new class" class="button">

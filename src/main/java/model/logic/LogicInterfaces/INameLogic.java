@@ -5,6 +5,6 @@ import model.entity.Name;
 import java.sql.SQLException;
 
 public interface INameLogic {
-    public void AddName(Name name) throws SQLException;
+    public Name AddName(Name name) throws SQLException;
     public void EditName(Name name) throws SQLException;
 }
