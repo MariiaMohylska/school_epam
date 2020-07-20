@@ -25,12 +25,14 @@ public class ViewDetailsStudent extends HttpServlet {
 
         int idStudent = Integer.parseInt(req.getParameter("StudentView"));
         try {
-             newStudent = RepresentationLogic.allDetailsStudent(idStudent);
+             newStudent = new RepresentationLogic().allDetailsStudent(idStudent);
+            req.setAttribute("students", newStudent);
+            req.getRequestDispatcher(index).forward(req, resp);
         } catch (SQLException e) {
             e.printStackTrace();
+            resp.getWriter().print(e.getMessage());
         }
-        req.setAttribute("students", newStudent);
-        req.getRequestDispatcher(index).forward(req, resp);
+
 
     }
 

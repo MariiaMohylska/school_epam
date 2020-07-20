@@ -28,7 +28,6 @@ public class ClassesService extends Util implements Dao<Classes> {
                 classes.setId(resultSet.getInt("IDCLASS"));
                 classes.setClasses(resultSet.getString("CLASS"));
             }
-//            preparedStatement.executeUpdate();
 
         }catch (SQLException e){
             e.printStackTrace();

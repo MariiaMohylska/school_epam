@@ -25,8 +25,10 @@ public class EditClassForStudent extends HttpServlet {
                     Integer.parseInt(req.getParameter("studentId"))).get();
         } catch (SQLException e) {
             e.printStackTrace();
+            resp.getWriter().print(e.getMessage());
         } catch (NullPointerException e){
             e.printStackTrace();
+            resp.getWriter().print(e.getMessage());
         }
 
         req.getRequestDispatcher("/editClassForStudent.jsp").forward(req, resp);
@@ -38,13 +40,13 @@ public class EditClassForStudent extends HttpServlet {
 
         String classNumber = req.getParameter("classNumber");
         try {
-            StudentLogic.ChangeClass(student, classNumber);
+           new StudentLogic().ChangeClass(student, classNumber);
         } catch (SQLException e) {
             e.printStackTrace();
+            resp.getWriter().print(e.getMessage());
         }
 
         resp.sendRedirect(req.getContextPath() + "/viewDetails?StudentView=" + student.getId());
-//        resp.sendRedirect(req.getContextPath() + "/viewDetails?StudentView=" + classes.getIdStudent());
 
     }
 }

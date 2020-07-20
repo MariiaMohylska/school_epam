@@ -1,21 +1,30 @@
 package model.logic;
 
 import model.entity.*;
+import model.exceptions.DataAlreadyInDB;
+import model.exceptions.IncorrectData;
+import model.logic.LogicInterfaces.ILogic;
 import model.logic.LogicInterfaces.IStudentLogic;
 import model.service.*;
-import org.graalvm.compiler.nodes.calc.IntegerDivRemNode;
 
 import java.sql.SQLException;
 import java.util.*;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
 
-public class StudentLogic implements IStudentLogic {
+public class StudentLogic implements ILogic<NewStudent>, IStudentLogic {
 
-    public static void AddStudent(NewStudent newStudent) throws SQLException {
+    public void ChangeClass(Student student, String newClass) throws SQLException {
+        Classes classes = new ClassLogic().searchClassByName(newClass);
+        student.setIdClass(classes.getId());
+        new StudentService().update(student);
+    }
+
+    @Override
+    public Optional<NewStudent> add(NewStudent newStudent)
+            throws SQLException, NullPointerException, DataAlreadyInDB, IncorrectData {
         Student student = new Student();
         List<Student> studentList = new StudentService().getAll();
         int studentMaxId = 0;
+
         for(Student std : studentList){
             studentMaxId = (std.getId()>studentMaxId) ? std.getId() : studentMaxId;
         }
@@ -23,106 +32,40 @@ public class StudentLogic implements IStudentLogic {
         student.setBDay(newStudent.getBday());
         student.setIdClass(Integer.parseInt(newStudent.getClassNumber()));
 
-        Name name = new Name();
-        name.setSurname(newStudent.getSurname());
-        name.setName(newStudent.getName());
-        name.setFatherName(newStudent.getFatherName());
+        try {
+            PersonalFile personalFile = new PersonalFile();
+            personalFile.setIdStudent(student.getId());
+            personalFile.setEntryDate(newStudent.getEntryDate());
+            personalFile.setNumber(newStudent.getFileNumber());
 
-        student.setIdName(new NameLogic().AddName(name).getId());
+            Phone phone = new Phone();
+            phone.setIdStudent(student.getId());
+            phone.setPhone(newStudent.getPhoneNumber());
 
-        Address address = new Address();
+            new PersonalFileLogic().add(personalFile);
+            new PhoneLogic().add(phone);
 
-        address.setCity(newStudent.getCity());
-        address.setStreet(newStudent.getStreet());
-        address.setHouse(newStudent.getHouse());
-        address.setFlat(newStudent.getFlat());
-        new AddressLogic().AddAdress(address);
-
-        student.setIdAddress(new AddressLogic().AddAdress(address).getId());
-
-        new StudentService().add(student);
-
-        PersonalFile personalFile = new PersonalFile();
-        personalFile.setIdStudent(student.getId());
-        personalFile.setEntryDate(newStudent.getEntryDate());
-        personalFile.setNumber(newStudent.getFileNumber());
-
-        Phone phone = new Phone();
-        phone.setIdStudent(student.getId());
-        phone.setPhone(newStudent.getPhoneNumber());
-
-        new PersonalFileLogic().AddPersonalFile(personalFile);
-        new PhoneLogic().AddPhone(phone);
-
-    }
-
-    public static void EditStudent(NewStudent newStudent) throws SQLException {
-        Student student = new Student();
-        List<Student> studentList = new StudentService().getAll();
-        for(Student std : studentList){
-            if(newStudent.getId() == std.getId()){
-                student = std;
-            }
-        }
-
-        PersonalFile personalFile = new PersonalFile();
-        List<PersonalFile> personalFileList = new PersonalFileService().getAll();
-        for(PersonalFile file : personalFileList){
-            if(file.getIdStudent() == student.getId()){
-                personalFile = file;
-            }
-        }
-
-        personalFile.setNumber(newStudent.getFileNumber());
-        personalFile.setEntryDate(newStudent.getEntryDate());
-        personalFile.setGradDate(newStudent.getGradDate());
-
-        Optional<Name> nameOptional = new NameService().get(student.getIdName());
-        if(nameOptional.isPresent()){
             Name name = new Name();
-
-            name = nameOptional.get();
             name.setSurname(newStudent.getSurname());
             name.setName(newStudent.getName());
             name.setFatherName(newStudent.getFatherName());
-            new NameLogic().EditName(name);
-        }
 
+            student.setIdName(new NameLogic().add(name).get().getId());
 
+            Address address = new Address();
 
-        Optional<Address> addressOptional = new AddressService().get(student.getIdAddress());
-        Address address = new Address();
-        if(addressOptional.isPresent()){
-            address = addressOptional.get();
             address.setCity(newStudent.getCity());
             address.setStreet(newStudent.getStreet());
             address.setHouse(newStudent.getHouse());
             address.setFlat(newStudent.getFlat());
+            new AddressLogic().add(address);
 
-            new AddressLogic().EditAddress(address);
+            student.setIdAddress(new AddressLogic().add(address).get().getId());
+
+            new StudentService().add(student);
+        } catch (DataAlreadyInDB e){
+            throw  e;
         }
-
-
-        Phone phone = new Phone();
-        List<Phone> phoneList = new PhoneService().getAll();
-
-        for(Phone ph:phoneList){
-           if(ph.getIdStudent() == student.getId()){
-               phone = ph;
-           }
-        }
-
-        phone.setPhone(newStudent.getPhoneNumber());
-
-        new PhoneLogic().EditPhone(phone);
-        new PersonalFileLogic().EditPersonalFile(personalFile);
-//        Personal FIle and Phone Edit
+        return Optional.of(newStudent);
     }
-
-    public static void ChangeClass(Student student, String newClass) throws SQLException {
-        Classes classes = new ClassLogic().searchClassByName(newClass);
-        student.setIdClass(classes.getId());
-        new StudentService().update(student);
-    }
-
 }

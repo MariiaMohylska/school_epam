@@ -22,26 +22,25 @@ public class EditPerdonalFileServlet extends HttpServlet {
                     Integer.parseInt(req.getParameter("personalFileID"))).get();
         } catch (SQLException e) {
             e.printStackTrace();
+            resp.getWriter().print(e.getMessage());
         } catch (NullPointerException e){
             e.printStackTrace();
+            resp.getWriter().print(e.getMessage());
         }
-
         req.getRequestDispatcher("/editPersonalFile.jsp").forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-
         final LocalDate gradDate = LocalDate.parse(req.getParameter("gradDate"));
         personalFile.setGradDate(gradDate);
-//        req.setAttribute("StudentView", personalFile.getIdStudent());
         try {
             new PersonalFileService().update(personalFile);
         } catch (SQLException e) {
             e.printStackTrace();
+            resp.getWriter().print(e.getMessage());
         }
-//        req.getRequestDispatcher("detailstudent.jsp").forward(req, resp);
         resp.sendRedirect(req.getContextPath() + "/viewDetails?StudentView=" + personalFile.getIdStudent());
 
     }

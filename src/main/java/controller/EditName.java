@@ -1,6 +1,7 @@
 package controller;
 
 import model.entity.Name;
+import model.exceptions.IncorrectData;
 import model.logic.NameLogic;
 import model.service.NameService;
 
@@ -22,8 +23,10 @@ public class EditName extends HttpServlet {
             studentId = Integer.parseInt(req.getParameter("studentID"));
         } catch (SQLException e) {
             e.printStackTrace();
+            resp.getWriter().print(e.getMessage());
         } catch (NullPointerException e){
             e.printStackTrace();
+            resp.getWriter().print(e.getMessage());
         }
 
         req.setAttribute("NameObj", nameObj);
@@ -37,16 +40,20 @@ public class EditName extends HttpServlet {
         String surname = req.getParameter("surname");
         String name = req.getParameter("name");
         String fatherName = req.getParameter("fatherName");
-        nameObj.setSurname(surname);
-        nameObj.setName(name);
-        nameObj.setFatherName(fatherName);
+
         try {
-            new NameLogic().EditName(nameObj);
+            nameObj.setSurname(surname);
+            nameObj.setName(name);
+            nameObj.setFatherName(fatherName);
+            new NameService().update(nameObj);
+            resp.sendRedirect(req.getContextPath() + "/viewDetails?StudentView=" + studentId);
         } catch (SQLException e) {
             e.printStackTrace();
+            resp.getWriter().print(e.getMessage());
+        } catch ( IncorrectData e){
+            resp.getWriter().print(e.getMessage());
         }
 
-        resp.sendRedirect(req.getContextPath() + "/viewDetails?StudentView=" + studentId);
 
     }
 }

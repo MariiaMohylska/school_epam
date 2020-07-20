@@ -1,5 +1,7 @@
 package model.entity;
 
+import model.exceptions.IncorrectData;
+
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.Objects;
@@ -27,8 +29,12 @@ public class PersonalFile {
         return number;
     }
 
-    public void setNumber(String number) {
-        this.number = number;
+    public void setNumber(String number) throws IncorrectData {
+        if(number.matches("\\d{4}[/]\\d\\b")) {
+            this.number = number;
+        } else {
+            throw new IncorrectData("Incorrect personal file number");
+        }
     }
 
     public int getIdStudent() {

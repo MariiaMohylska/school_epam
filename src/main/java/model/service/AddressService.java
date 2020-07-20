@@ -30,7 +30,6 @@ public class AddressService extends Util implements Dao<Address> {
                 address.setHouse(resultSet.getString("HOUSE"));
                 address.setFlat(resultSet.getString("FLAT"));
             }
-//            preparedStatement.executeUpdate();
 
         }catch (SQLException e){
             e.printStackTrace();

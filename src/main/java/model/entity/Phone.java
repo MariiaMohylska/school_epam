@@ -1,5 +1,7 @@
 package model.entity;
 
+import model.exceptions.IncorrectData;
+
 import java.util.Objects;
 
 public class Phone {
@@ -23,8 +25,12 @@ public class Phone {
         return phone;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setPhone(String phone) throws IncorrectData {
+        if(phone.matches("[(]{1}\\d{3}[)]{1}\\d{3}[-]{1}\\d{2}[-]{1}\\d{2}")) {
+            this.phone = phone;
+        }else{
+            throw new IncorrectData("Incorrect phone number or wrong format");
+        }
     }
 
     public int getIdStudent() {

@@ -1,5 +1,7 @@
 package model.entity;
 
+import model.exceptions.IncorrectData;
+
 import java.util.Objects;
 
 public class Address {
@@ -25,32 +27,48 @@ public class Address {
         return city;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setCity(String city) throws IncorrectData {
+        if(city.matches("^\\D+$")) {
+            this.city = city.toUpperCase();
+        }else {
+            throw new IncorrectData("Incorrect address");
+        }
     }
 
     public String getStreet() {
         return street;
     }
 
-    public void setStreet(String street) {
-        this.street = street;
+    public void setStreet(String street) throws IncorrectData {
+        if(street.matches("^\\D+$")) {
+            this.street = street;
+        } else {
+            throw new IncorrectData("Incorrect street");
+        }
     }
 
     public String getHouse() {
-        return house;
+            return house;
     }
 
-    public void setHouse(String house) {
-        this.house = house;
+    public void setHouse(String house) throws IncorrectData {
+        if(house.matches("^\\d+\\D*$")) {
+            this.house = house;
+        } else {
+            throw  new IncorrectData("Incorrect house");
+        }
     }
 
     public String getFlat() {
         return flat;
     }
 
-    public void setFlat(String flat) {
-        this.flat = flat;
+    public void setFlat(String flat) throws IncorrectData {
+        if(house.matches("^\\d+\\D*$")) {
+            this.flat = flat;
+        } else {
+            throw new IncorrectData("Incorrect flat");
+        }
     }
 
     @Override

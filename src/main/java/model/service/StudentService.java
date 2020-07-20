@@ -30,7 +30,6 @@ public class StudentService extends Util implements Dao<Student> {
                 student.setIdClass(resultSet.getInt("CLASS"));
                 student.setBDay(resultSet.getDate("BDAY").toLocalDate());
             }
-//            preparedStatement.executeUpdate();
 
         }catch (SQLException e){
             e.printStackTrace();

@@ -3,6 +3,7 @@ package model.logic;
 import model.entity.Classes;
 import model.entity.PersonalFile;
 import model.entity.Student;
+import model.exceptions.DataAlreadyInDB;
 import model.logic.LogicInterfaces.IClassLogic;
 import model.service.ClassesService;
 import model.service.PersonalFileService;
@@ -17,7 +18,7 @@ import java.util.Optional;
 
 public class ClassLogic implements IClassLogic {
 
-    public void TransferAllClass(){
+    public void TransferAllClass() throws DataAlreadyInDB {
 
         try {
             List<Student> studentList = new StudentService().getAll();
@@ -69,7 +70,7 @@ public class ClassLogic implements IClassLogic {
     }
 
 
-    public Classes newClassAdd (String classNumber) throws SQLException {
+    public Classes newClassAdd (String classNumber) throws SQLException, DataAlreadyInDB {
 
         Classes classes = new Classes();
         classNumber = classNumber.toUpperCase();
@@ -87,7 +88,7 @@ public class ClassLogic implements IClassLogic {
             int classPresent = 0;
             for(Classes cls : classesList){
                 maxId = (cls.getId()>= maxId) ? cls.getId() : maxId;
-                if(cls.getClasses() == classNumber)
+                if(cls.getClasses().equals(classNumber))
                 {
                     classPresent = 1;
                 }
@@ -98,6 +99,8 @@ public class ClassLogic implements IClassLogic {
                 classes.setId(maxId+1);
                 classes.setClasses(classNumber);
                 new ClassesService().add(classes);
+            } else {
+                throw  new DataAlreadyInDB("Class already exists");
             }
 
         }

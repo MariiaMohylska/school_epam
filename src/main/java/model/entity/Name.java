@@ -1,5 +1,7 @@
 package model.entity;
 
+import model.exceptions.IncorrectData;
+
 import java.util.Objects;
 
 public class Name {
@@ -24,24 +26,36 @@ public class Name {
         return surname;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public void setSurname(String surname) throws IncorrectData {
+        if(surname.matches("^\\D+$")) {
+            this.surname = surname.toUpperCase();
+        } else {
+            throw new IncorrectData("Incorrect surname");
+        }
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String name) throws IncorrectData {
+        if(surname.matches("^\\D+$")) {
+            this.name = name;
+        } else {
+            throw  new IncorrectData("Incorrect name");
+        }
     }
 
     public String getFatherName() {
         return fatherName;
     }
 
-    public void setFatherName(String fatherName) {
-        this.fatherName = fatherName;
+    public void setFatherName(String fatherName) throws IncorrectData {
+        if(surname.matches("^\\D+$")) {
+            this.fatherName = fatherName;
+        } else {
+            throw new IncorrectData("Incorrect father name");
+        }
     }
 
     @Override

@@ -18,15 +18,10 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 public class DeleteStudent extends HttpServlet {
-    @Override
-    public void init() throws ServletException {
-
-    }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-//
         int studentID = Integer.parseInt(req.getParameter("StudentForDelete"));
             Student student = new Student();
             Address address = new Address();
@@ -41,8 +36,10 @@ public class DeleteStudent extends HttpServlet {
         resp.sendRedirect(req.getContextPath() + "/main");
         } catch (SQLException e) {
             e.printStackTrace();
+            resp.getWriter().print(e.getMessage());
         }catch (NullPointerException e){
             e.printStackTrace();
+            resp.getWriter().print(e.getMessage());
         }
     }
 

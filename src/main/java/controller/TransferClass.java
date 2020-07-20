@@ -4,6 +4,7 @@ import model.entity.Address;
 import model.entity.Classes;
 import model.entity.Name;
 import model.entity.Student;
+import model.exceptions.DataAlreadyInDB;
 import model.logic.ClassLogic;
 import model.logic.NewStudent;
 import model.logic.StudentLogic;
@@ -28,21 +29,15 @@ public class TransferClass extends HttpServlet {
     private List<Classes> classesList;
 
     @Override
-    public void init() throws ServletException {
-
-    }
-
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
-
-    }
-
-    @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws IOException {
 
+        try {
             new ClassLogic().TransferAllClass();
-            resp.sendRedirect(req.getContextPath() + "/main");
+        } catch (DataAlreadyInDB e) {
+            resp.getWriter().print(e.getMessage());
+        }
+        resp.sendRedirect(req.getContextPath() + "/main");
 
     }
 }

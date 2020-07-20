@@ -1,71 +1,16 @@
 package model.logic;
 
 import model.entity.PersonalFile;
-import model.logic.LogicInterfaces.INameLogic;
+import model.exceptions.DataAlreadyInDB;
+import model.logic.LogicInterfaces.ILogic;
 import model.logic.LogicInterfaces.IPersonalFileLogic;
 import model.service.PersonalFileService;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Optional;
 
-public class PersonalFileLogic  implements IPersonalFileLogic {
-
-    public void AddPersonalFile(PersonalFile personalFile) throws SQLException {
-        List<PersonalFile> personalFileList = new PersonalFileService().getAll();
-        int personelFileMaxId = 0;
-        for(PersonalFile file : personalFileList){
-            personelFileMaxId = (file.getId()>personelFileMaxId) ? file.getId() : personelFileMaxId;
-        }
-
-        personalFile.setId(personelFileMaxId + 1);
-        String fileNumber = personalFile.getNumber();
-        if(fileNumber.matches("\\d{4}[/]\\d\\b")) {
-            int checkPresent = 0;
-
-            for (PersonalFile file : personalFileList){
-                if(file.getNumber().equals(fileNumber)){
-                    checkPresent = 1;
-                }
-            }
-
-            if(checkPresent == 0){
-                new PersonalFileService().add(personalFile);
-            } else{
-//                вивід про те що запис існує
-            }
-        }else{
-//            Додати вивід про некоректний номер
-        }
-
-    }
-    public void EditPersonalFile(PersonalFile personalFile) throws SQLException {
-        List<PersonalFile> personalFileList = new PersonalFileService().getAll();
-        int personelFileMaxId = 0;
-        for(PersonalFile file : personalFileList){
-            personelFileMaxId = (file.getId()>personelFileMaxId) ? file.getId() : personelFileMaxId;
-        }
-
-        personalFile.setId(personelFileMaxId + 1);
-        String fileNumber = personalFile.getNumber();
-        if(fileNumber.matches("\\d{4}[/]\\d\\b")) {
-            int checkPresent = 0;
-
-            for (PersonalFile file : personalFileList){
-                if(file.getNumber().equals(fileNumber)){
-                    checkPresent = 1;
-                }
-            }
-
-            if(checkPresent == 0){
-                new PersonalFileService().update(personalFile);
-            } else{
-//                вивід про те що запис існує
-            }
-        }else{
-//            Додати вивід про некоректний номер
-        }
-
-    }
+public class PersonalFileLogic  implements ILogic<PersonalFile>, IPersonalFileLogic {
     public PersonalFile serchByStudent(int idStudent) throws SQLException {
             PersonalFile personalFile = null;
             List<PersonalFile> personalFileList = new PersonalFileService().getAll();
@@ -78,4 +23,29 @@ public class PersonalFileLogic  implements IPersonalFileLogic {
         return  personalFile;
     }
 
+    @Override
+    public Optional<PersonalFile> add(PersonalFile personalFile) throws SQLException, DataAlreadyInDB {
+        List<PersonalFile> personalFileList = new PersonalFileService().getAll();
+        int personelFileMaxId = 0;
+        for(PersonalFile file : personalFileList){
+            personelFileMaxId = (file.getId()>personelFileMaxId) ? file.getId() : personelFileMaxId;
+        }
+
+        personalFile.setId(personelFileMaxId + 1);
+        String fileNumber = personalFile.getNumber();
+        int checkPresent = 0;
+
+        for (PersonalFile file : personalFileList){
+            if(file.getNumber().equals(fileNumber)){
+                checkPresent = 1;
+            }
+        }
+
+        if(checkPresent == 0){
+            new PersonalFileService().add(personalFile);
+        } else {
+            throw new DataAlreadyInDB("Prsonal File Number already exists");
+        }
+        return Optional.of(personalFile);
+    }
 }

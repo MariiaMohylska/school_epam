@@ -22,8 +22,10 @@ public class EditBday extends HttpServlet {
                     Integer.parseInt(req.getParameter("studentID"))).get();
         } catch (SQLException e) {
             e.printStackTrace();
+            resp.getWriter().print(e.getMessage());
         } catch (NullPointerException e){
             e.printStackTrace();
+            resp.getWriter().print(e.getMessage());
         }
 
         req.getRequestDispatcher("/editBday.jsp").forward(req, resp);
@@ -39,6 +41,7 @@ public class EditBday extends HttpServlet {
             new StudentService().update(student);
         } catch (SQLException e) {
             e.printStackTrace();
+            resp.getWriter().print(e.getMessage());
         }
         resp.sendRedirect(req.getContextPath() + "/viewDetails?StudentView=" +student.getId());
 

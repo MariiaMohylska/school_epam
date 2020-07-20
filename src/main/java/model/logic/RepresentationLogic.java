@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class RepresentationLogic {
-    public static List<StudentShort> getRepresentation() throws SQLException {
+    public List<StudentShort> getRepresentation() throws SQLException {
         List<StudentShort> studentShortList = new ArrayList<>();
 
         ClassesService classesService = new ClassesService();
@@ -70,7 +70,7 @@ public class RepresentationLogic {
         return studentShortList;
     }
 
-    public static NewStudentObject allDetailsStudent(int id) throws SQLException {
+    public NewStudentObject allDetailsStudent(int id) throws SQLException {
         NewStudentObject newStudent = new NewStudentObject();
         Student student;
         Optional<Student> studentOptional = new StudentService().get(id);

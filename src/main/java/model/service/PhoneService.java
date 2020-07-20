@@ -27,7 +27,6 @@ public class PhoneService extends Util implements Dao<Phone> {
                 phone.setPhone(resultSet.getString("PHONE_NUMBER"));
                 phone.setIdStudent(resultSet.getInt("STUDENT"));
             }
-//            preparedStatement.executeUpdate();
 
         }catch (SQLException e){
             e.printStackTrace();

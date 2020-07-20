@@ -21,19 +21,15 @@ public class StudentInClassServlet extends HttpServlet {
     private List<StudentShort> studentList;
     static String classNumber;
 
-    @Override
-    public void init() throws ServletException {
-
-    }
-
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         try {
-            studentList = RepresentationLogic.getRepresentation();
+            studentList = new RepresentationLogic().getRepresentation();
 
         } catch (SQLException e) {
             System.out.println("Problem retrieving data from database");
             e.printStackTrace();
+            resp.getWriter().print(e.getMessage());
         }
 
         classNumber = req.getParameter("class");
@@ -50,11 +46,3 @@ public class StudentInClassServlet extends HttpServlet {
     }
 
 }
-//try {
-//            classesList = new ClassesService().getAll();
-//        } catch (SQLException e) {
-//            System.out.println("Problem retrieving data from database");
-//            e.printStackTrace();
-//        }
-//        req.setAttribute("classes", classesList);
-//        req.getRequestDispatcher(index).forward(req, resp);

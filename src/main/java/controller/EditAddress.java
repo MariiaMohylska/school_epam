@@ -2,6 +2,7 @@ package controller;
 
 import model.entity.Address;
 import model.entity.Name;
+import model.exceptions.IncorrectData;
 import model.logic.AddressLogic;
 import model.logic.NameLogic;
 import model.service.AddressService;
@@ -25,8 +26,10 @@ public class EditAddress extends HttpServlet {
             studentId = Integer.parseInt(req.getParameter("studentID"));
         } catch (SQLException e) {
             e.printStackTrace();
+            resp.getWriter().print(e.getMessage());
         } catch (NullPointerException e){
             e.printStackTrace();
+            resp.getWriter().print(e.getMessage());
         }
 
         req.setAttribute("address", address);
@@ -41,17 +44,20 @@ public class EditAddress extends HttpServlet {
         String street = req.getParameter("street");
         String house = req.getParameter("house");
         String flat = req.getParameter("flat");
-        address.setCity(city);
-        address.setStreet(street);
-        address.setHouse(house);
-        address.setFlat(flat);
         try {
-            new AddressLogic().EditAddress(address);
+            address.setCity(city);
+            address.setStreet(street);
+            address.setHouse(house);
+            address.setFlat(flat);
+            new AddressService().update(address);
+            resp.sendRedirect(req.getContextPath() + "/viewDetails?StudentView=" + studentId);
         } catch (SQLException e) {
             e.printStackTrace();
+            resp.getWriter().print(e.getMessage());
+        } catch (IncorrectData e){
+            resp.getWriter().print(e.getMessage());
         }
 
-        resp.sendRedirect(req.getContextPath() + "/viewDetails?StudentView=" + studentId);
 
     }
 }

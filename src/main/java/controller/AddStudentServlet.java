@@ -1,6 +1,8 @@
 package controller;
 
 import jdk.vm.ci.meta.Local;
+import model.exceptions.DataAlreadyInDB;
+import model.exceptions.IncorrectData;
 import model.logic.ClassLogic;
 import model.logic.NewStudent;
 import model.logic.StudentLogic;
@@ -51,11 +53,19 @@ public class AddStudentServlet extends HttpServlet {
         newStudent.setPhoneNumber(req.getParameter("phone"));
 
         try {
-            new StudentLogic().AddStudent(newStudent);
+            new StudentLogic().add(newStudent);
+            resp.sendRedirect(req.getContextPath() + "/main");
         } catch (SQLException e) {
             e.printStackTrace();
+            resp.getWriter().print(e.getMessage());
+        } catch (NullPointerException e){
+            e.printStackTrace();
+            resp.getWriter().print(e.getMessage());
+        } catch (DataAlreadyInDB e){
+            resp.getWriter().print(e.getMessage());
+        } catch (IncorrectData e){
+            resp.getWriter().print(e.getMessage());
         }
-        resp.sendRedirect(req.getContextPath() + "/main");
 
     }
 

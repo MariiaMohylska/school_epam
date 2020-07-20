@@ -1,6 +1,7 @@
 package controller;
 
 import model.entity.Classes;
+import model.exceptions.DataAlreadyInDB;
 import model.logic.ClassLogic;
 import model.service.ClassesService;
 
@@ -15,12 +16,6 @@ import java.util.List;
 
 public class AddClassServlet extends HttpServlet {
     private final static String index = "/addclass.jsp";
-
-
-    @Override
-    public void init() throws ServletException {
-
-    }
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
@@ -37,10 +32,13 @@ public class AddClassServlet extends HttpServlet {
         if (!classNumber.equals(null)) {
             try {
                 new ClassLogic().newClassAdd(classNumber);
+                resp.sendRedirect(req.getContextPath() + "/main");
             } catch (SQLException e) {
                 e.printStackTrace();
+            } catch (DataAlreadyInDB e){
+                resp.getWriter().print(e.getMessage());
             }
-            resp.sendRedirect(req.getContextPath() + "/main");
+
         }
     }
 }

@@ -30,7 +30,6 @@ public class PersonalFileService extends Util implements Dao<PersonalFile> {
                 personalFile.setEntryDate(resultSet.getDate("ENTRY_DATE").toLocalDate());
                 personalFile.setGradDate(resultSet.getDate("GRAD_DATE").toLocalDate());
             }
-//            preparedStatement.executeUpdate();
 
         }catch (SQLException e){
             e.printStackTrace();

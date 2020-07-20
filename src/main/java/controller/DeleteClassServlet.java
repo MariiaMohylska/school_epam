@@ -14,11 +14,6 @@ import java.sql.SQLException;
 public class DeleteClassServlet extends HttpServlet {
 
     @Override
-    public void init() throws ServletException {
-
-    }
-
-    @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 
@@ -26,6 +21,7 @@ public class DeleteClassServlet extends HttpServlet {
             new ClassLogic().deleteClass(Integer.parseInt(req.getParameter("classForDelete")));
         } catch (SQLException e) {
             e.printStackTrace();
+            resp.getWriter().print(e.getMessage());
         }
 
         resp.sendRedirect(req.getContextPath() + "/main");

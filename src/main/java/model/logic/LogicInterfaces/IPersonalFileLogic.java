@@ -5,7 +5,5 @@ import model.entity.PersonalFile;
 import java.sql.SQLException;
 
 public interface IPersonalFileLogic {
-    public void AddPersonalFile(PersonalFile personalFile) throws SQLException;
-    public void EditPersonalFile(PersonalFile personalFile) throws SQLException;
-    public PersonalFile serchByStudent(int idStudent) throws SQLException;
+    PersonalFile serchByStudent(int idStudent) throws SQLException;
 }

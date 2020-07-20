@@ -28,7 +28,6 @@ public class NameService extends Util implements Dao<Name> {
                 name.setName(resultSet.getString("NAME"));
                 name.setFatherName(resultSet.getString("FATHER_NAME"));
             }
-//            preparedStatement.executeUpdate();
 
         }catch (SQLException e){
             e.printStackTrace();

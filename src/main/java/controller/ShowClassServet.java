@@ -17,11 +17,6 @@ public class ShowClassServet extends HttpServlet {
     private List<Classes> classesList;
     private Classes gradClass;
 
-    @Override
-    public void init() throws ServletException {
-
-    }
-
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         try {
@@ -31,8 +26,10 @@ public class ShowClassServet extends HttpServlet {
         } catch (SQLException e) {
             System.out.println("Problem retrieving data from database");
             e.printStackTrace();
+            resp.getWriter().print(e.getMessage());
         }catch (NullPointerException e){
             e.printStackTrace();
+            resp.getWriter().print(e.getMessage());
         }
         req.setAttribute("GradClass", gradClass);
         req.setAttribute("classes", classesList);

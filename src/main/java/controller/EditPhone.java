@@ -1,6 +1,7 @@
 package controller;
 
 import model.entity.Phone;
+import model.exceptions.IncorrectData;
 import model.logic.PhoneLogic;
 import model.service.NameService;
 import model.service.PersonalFileService;
@@ -16,6 +17,7 @@ import java.time.LocalDate;
 
 public class EditPhone extends HttpServlet {
     private Phone phone;
+
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         try {
@@ -23,8 +25,10 @@ public class EditPhone extends HttpServlet {
                     Integer.parseInt(req.getParameter("phoneID"))).get();
         } catch (SQLException e) {
             e.printStackTrace();
+            resp.getWriter().print(e.getMessage());
         } catch (NullPointerException e){
             e.printStackTrace();
+            resp.getWriter().print(e.getMessage());
         }
 
         req.setAttribute("phone", phone);
@@ -36,13 +40,17 @@ public class EditPhone extends HttpServlet {
             throws ServletException, IOException {
 
         String phoneNumber = req.getParameter("phoneNumber");
-        phone.setPhone(phoneNumber);
+
         try {
-            new PhoneLogic().EditPhone(phone);
+            phone.setPhone(phoneNumber);
+            new PhoneService().update(phone);
+            resp.sendRedirect(req.getContextPath() + "/viewDetails?StudentView=" + phone.getIdStudent());
         } catch (SQLException e) {
             e.printStackTrace();
+            resp.getWriter().print(e.getMessage());
+        } catch (IncorrectData e){
+            resp.getWriter().print(e.getMessage());
         }
-        resp.sendRedirect(req.getContextPath() + "/viewDetails?StudentView=" + phone.getIdStudent());
 
     }
 }
