@@ -30,6 +30,9 @@ public class EditAddress extends HttpServlet {
         } catch (NullPointerException e){
             e.printStackTrace();
             resp.getWriter().print(e.getMessage());
+        } catch (IncorrectData e) {
+            e.printStackTrace();
+            resp.getWriter().print(e.getMessage());
         }
 
         req.setAttribute("address", address);

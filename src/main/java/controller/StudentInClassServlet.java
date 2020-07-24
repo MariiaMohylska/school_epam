@@ -1,5 +1,6 @@
 package controller;
 
+import model.exceptions.IncorrectData;
 import model.logic.NewStudent;
 import model.logic.RepresentationLogic;
 import model.logic.StudentLogic;
@@ -28,6 +29,9 @@ public class StudentInClassServlet extends HttpServlet {
 
         } catch (SQLException e) {
             System.out.println("Problem retrieving data from database");
+            e.printStackTrace();
+            resp.getWriter().print(e.getMessage());
+        } catch (IncorrectData e) {
             e.printStackTrace();
             resp.getWriter().print(e.getMessage());
         }

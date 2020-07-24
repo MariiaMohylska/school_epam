@@ -1,0 +1,40 @@
+Configuration:
+  package: "school"
+  name: Log4j2_Config
+  properties:
+    property:
+      name: log-path
+      value: logs
+
+#------------------------------------------------------------------------
+
+  appenders:
+    RollingFile:
+      name: rolFile
+      fileName: ${log-path}/rollingFileWarn.log
+      filePattern: ${log-path}/archive/rolFile.log.%d{yyyy-MM-dd}.gz
+      PatternLayout:
+        Pattern: "[%-5level]%d{yyyy-MM-dd HH:mm:ss} %class{1}:%L - %msg %xEx{short}%n"
+      Policies:
+        CronTriggeringPolicy:
+          schedule: "0 0 0 ? * *"
+          evaluateOnStartup: true
+        DefaultRolloverStrategy:
+          max: 1
+#------------------------------------------------------------------------
+
+  Loggers:
+    Root:
+      level: all
+      AppenderRef:
+        ref: rolFile
+        level: all
+
+    Logger:
+      name: school
+      level: all
+      AppenderRef:
+        ref: rolFile
+        level: all
+
+#------------------------------------------------------------------------

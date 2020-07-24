@@ -3,6 +3,7 @@ package model.service;
 import model.Util;
 import model.dao.Dao;
 import model.entity.Name;
+import model.exceptions.IncorrectData;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -13,7 +14,7 @@ public class NameService extends Util implements Dao<Name> {
     Connection connection = getConnection();
 
     @Override
-    public Optional<Name> get(int id) throws SQLException {
+    public Optional<Name> get(int id) throws SQLException, IncorrectData {
         PreparedStatement preparedStatement = null;
         String sql = "SELECT IDNAME, SURNAME, NAME, FATHER_NAME FROM NAME WHERE IDNAME=?";
         Name name = new Name();
@@ -44,7 +45,7 @@ public class NameService extends Util implements Dao<Name> {
     }
 
     @Override
-    public List<Name> getAll() throws SQLException {
+    public List<Name> getAll() throws SQLException, IncorrectData {
         List<Name> nameList = new ArrayList<>();
 
         String sql = "SELECT IDNAME, SURNAME, NAME, FATHER_NAME FROM NAME";

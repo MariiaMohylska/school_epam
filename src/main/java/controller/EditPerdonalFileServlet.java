@@ -1,6 +1,7 @@
 package controller;
 
 import model.entity.PersonalFile;
+import model.exceptions.IncorrectData;
 import model.logic.ClassLogic;
 import model.logic.PersonalFileLogic;
 import model.service.PersonalFileService;
@@ -24,6 +25,9 @@ public class EditPerdonalFileServlet extends HttpServlet {
             e.printStackTrace();
             resp.getWriter().print(e.getMessage());
         } catch (NullPointerException e){
+            e.printStackTrace();
+            resp.getWriter().print(e.getMessage());
+        } catch (IncorrectData e) {
             e.printStackTrace();
             resp.getWriter().print(e.getMessage());
         }

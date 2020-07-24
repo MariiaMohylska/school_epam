@@ -5,6 +5,7 @@ import model.entity.Classes;
 import model.entity.Name;
 import model.entity.Student;
 import model.exceptions.DataAlreadyInDB;
+import model.exceptions.IncorrectData;
 import model.logic.ClassLogic;
 import model.logic.NewStudent;
 import model.logic.StudentLogic;
@@ -35,6 +36,9 @@ public class TransferClass extends HttpServlet {
         try {
             new ClassLogic().TransferAllClass();
         } catch (DataAlreadyInDB e) {
+            resp.getWriter().print(e.getMessage());
+        } catch (IncorrectData e) {
+            e.printStackTrace();
             resp.getWriter().print(e.getMessage());
         }
         resp.sendRedirect(req.getContextPath() + "/main");

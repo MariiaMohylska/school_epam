@@ -1,5 +1,4 @@
 D:\EPAM_Study\EPAM project\school\src\main\java\model\ClassEnum.java
-D:\EPAM_Study\EPAM project\school\src\main\java\controller\ExceptionServlet.java
 D:\EPAM_Study\EPAM project\school\src\main\java\controller\ViewMarks.java
 D:\EPAM_Study\EPAM project\school\src\main\java\model\logic\NameLogic.java
 D:\EPAM_Study\EPAM project\school\src\main\java\model\entity\Name.java
@@ -31,6 +30,7 @@ D:\EPAM_Study\EPAM project\school\src\main\java\controller\DeleteStudent.java
 D:\EPAM_Study\EPAM project\school\src\main\java\model\entity\Subject.java
 D:\EPAM_Study\EPAM project\school\src\main\java\controller\AddStudentServlet.java
 D:\EPAM_Study\EPAM project\school\src\main\java\model\service\StudentService.java
+D:\EPAM_Study\EPAM project\school\src\main\java\model\exceptions\IncorrectData.java
 D:\EPAM_Study\EPAM project\school\src\main\java\controller\EditPhone.java
 D:\EPAM_Study\EPAM project\school\src\main\java\model\logic\AddressLogic.java
 D:\EPAM_Study\EPAM project\school\src\main\java\model\service\PhoneService.java

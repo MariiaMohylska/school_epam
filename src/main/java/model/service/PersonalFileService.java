@@ -3,6 +3,7 @@ package model.service;
 import model.entity.PersonalFile;
 import model.Util;
 import model.dao.Dao;
+import model.exceptions.IncorrectData;
 
 import java.sql.*;
 import java.time.LocalDate;
@@ -14,7 +15,7 @@ public class PersonalFileService extends Util implements Dao<PersonalFile> {
     Connection connection = getConnection();
 
     @Override
-    public Optional<PersonalFile> get(int id) throws SQLException {
+    public Optional<PersonalFile> get(int id) throws SQLException, IncorrectData {
         PreparedStatement preparedStatement = null;
         String sql = "SELECT IDFILE, FILE_NUMBER, STUDENT, ENTRY_DATE, GRAD_DATE FROM PERSONAL_FILE WHERE IDFILE=?";
         PersonalFile personalFile = new PersonalFile();
@@ -46,7 +47,7 @@ public class PersonalFileService extends Util implements Dao<PersonalFile> {
     }
 
     @Override
-    public List<PersonalFile> getAll() throws SQLException {
+    public List<PersonalFile> getAll() throws SQLException, IncorrectData {
         List<PersonalFile> personalFileList = new ArrayList<>();
 
         String sql = "SELECT IDFILE, FILE_NUMBER, STUDENT, ENTRY_DATE, GRAD_DATE FROM PERSONAL_FILE";

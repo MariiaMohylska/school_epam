@@ -1,6 +1,7 @@
 package model.logic;
 
 import model.entity.Name;
+import model.exceptions.IncorrectData;
 import model.logic.LogicInterfaces.ILogic;
 import model.service.NameService;
 
@@ -11,7 +12,7 @@ import java.util.Optional;
 public class NameLogic implements ILogic<Name> {
 
     @Override
-    public Optional<Name> add(Name name) throws SQLException {
+    public Optional<Name> add(Name name) throws SQLException, IncorrectData {
         List<Name> nameList = new NameService().getAll();
         int nameMaxId = 0;
         for(Name n: nameList){

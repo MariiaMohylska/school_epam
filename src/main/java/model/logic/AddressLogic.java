@@ -1,6 +1,7 @@
 package model.logic;
 
 import model.entity.Address;
+import model.exceptions.IncorrectData;
 import model.logic.LogicInterfaces.ILogic;
 import model.service.AddressService;
 
@@ -10,7 +11,7 @@ import java.util.Optional;
 
 public class AddressLogic implements ILogic<Address> {
     @Override
-    public Optional<Address> add(Address address) throws SQLException {
+    public Optional<Address> add(Address address) throws SQLException, IncorrectData {
         int addressMaxId = 0;
         List<Address> addressList = new AddressService().getAll();
         for(Address addr : addressList){

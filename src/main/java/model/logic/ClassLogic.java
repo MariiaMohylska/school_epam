@@ -4,6 +4,7 @@ import model.entity.Classes;
 import model.entity.PersonalFile;
 import model.entity.Student;
 import model.exceptions.DataAlreadyInDB;
+import model.exceptions.IncorrectData;
 import model.logic.LogicInterfaces.IClassLogic;
 import model.service.ClassesService;
 import model.service.PersonalFileService;
@@ -18,7 +19,7 @@ import java.util.Optional;
 
 public class ClassLogic implements IClassLogic {
 
-    public void TransferAllClass() throws DataAlreadyInDB {
+    public void TransferAllClass() throws DataAlreadyInDB, IncorrectData {
 
         try {
             List<Student> studentList = new StudentService().getAll();
@@ -108,13 +109,18 @@ public class ClassLogic implements IClassLogic {
         return classes;
     }
 
-    public Classes searchClassByName(String className) throws SQLException{
+    public Classes searchClassByName(String className) throws SQLException, IncorrectData {
         Classes classes = new Classes();
         List<Classes> classesList = new ClassesService().getAll();
+        boolean isPresent = false;
         for(Classes cls : classesList){
             if(cls.getClasses().equals(className)){
                 classes = cls;
+                isPresent = true;
             }
+        }
+        if(!isPresent){
+            throw new IncorrectData("Such a class does not exist");
         }
         return classes;
     }

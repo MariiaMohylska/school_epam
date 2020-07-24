@@ -1,6 +1,7 @@
 model\service\PersonalFileService.class
 model\service\ClassesService.class
 model\Util.class
+model\exceptions\IncorrectData.class
 controller\ViewMarks.class
 controller\EditAddress.class
 model\service\StudentService.class
@@ -13,7 +14,6 @@ model\exceptions\DataAlreadyInDB.class
 model\entity\PersonalFile.class
 model\entity\Phone.class
 model\logic\LogicInterfaces\IClassLogic.class
-controller\ExceptionServlet.class
 model\logic\LogicInterfaces\ILogic.class
 model\entity\Address.class
 model\entity\Student.class

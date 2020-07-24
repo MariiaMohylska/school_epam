@@ -1,6 +1,7 @@
 package model.logic;
 
 import model.entity.*;
+import model.exceptions.IncorrectData;
 import model.service.*;
 import org.graalvm.compiler.nodes.calc.IntegerDivRemNode;
 
@@ -11,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class RepresentationLogic {
-    public List<StudentShort> getRepresentation() throws SQLException {
+    public List<StudentShort> getRepresentation() throws SQLException, IncorrectData {
         List<StudentShort> studentShortList = new ArrayList<>();
 
         ClassesService classesService = new ClassesService();
@@ -70,7 +71,7 @@ public class RepresentationLogic {
         return studentShortList;
     }
 
-    public NewStudentObject allDetailsStudent(int id) throws SQLException {
+    public NewStudentObject allDetailsStudent(int id) throws SQLException, IncorrectData {
         NewStudentObject newStudent = new NewStudentObject();
         Student student;
         Optional<Student> studentOptional = new StudentService().get(id);

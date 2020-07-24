@@ -27,6 +27,9 @@ public class EditName extends HttpServlet {
         } catch (NullPointerException e){
             e.printStackTrace();
             resp.getWriter().print(e.getMessage());
+        } catch (IncorrectData e) {
+            e.printStackTrace();
+            resp.getWriter().print(e.getMessage());
         }
 
         req.setAttribute("NameObj", nameObj);

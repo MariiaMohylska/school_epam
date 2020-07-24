@@ -4,6 +4,7 @@ import model.Util;
 import model.dao.Dao;
 import model.entity.Address;
 import  model.dao.Dao;
+import model.exceptions.IncorrectData;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -14,7 +15,7 @@ public class AddressService extends Util implements Dao<Address> {
     Connection connection = getConnection();
 
     @Override
-    public Optional<Address> get(int id) throws SQLException {
+    public Optional<Address> get(int id) throws SQLException, IncorrectData {
         PreparedStatement preparedStatement = null;
         String sql = "SELECT IDADDRESS, CITY, STREET, HOUSE, FLAT FROM ADDRESS WHERE IDADDRESS=?";
         Address address = new Address();
@@ -46,7 +47,7 @@ public class AddressService extends Util implements Dao<Address> {
     }
 
     @Override
-    public List<Address> getAll() throws SQLException {
+    public List<Address> getAll() throws SQLException, IncorrectData {
         List<Address> addressList = new ArrayList<>();
 
         String sql = "SELECT IDADDRESS, CITY, STREET, HOUSE, FLAT FROM ADDRESS";

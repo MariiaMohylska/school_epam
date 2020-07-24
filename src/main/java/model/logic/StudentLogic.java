@@ -12,7 +12,7 @@ import java.util.*;
 
 public class StudentLogic implements ILogic<NewStudent>, IStudentLogic {
 
-    public void ChangeClass(Student student, String newClass) throws SQLException {
+    public void ChangeClass(Student student, String newClass) throws SQLException, IncorrectData {
         Classes classes = new ClassLogic().searchClassByName(newClass);
         student.setIdClass(classes.getId());
         new StudentService().update(student);

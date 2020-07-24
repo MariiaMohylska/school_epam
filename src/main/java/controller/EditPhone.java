@@ -29,6 +29,9 @@ public class EditPhone extends HttpServlet {
         } catch (NullPointerException e){
             e.printStackTrace();
             resp.getWriter().print(e.getMessage());
+        } catch (IncorrectData e) {
+            e.printStackTrace();
+            resp.getWriter().print(e.getMessage());
         }
 
         req.setAttribute("phone", phone);

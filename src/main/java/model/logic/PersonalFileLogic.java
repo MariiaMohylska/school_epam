@@ -2,6 +2,7 @@ package model.logic;
 
 import model.entity.PersonalFile;
 import model.exceptions.DataAlreadyInDB;
+import model.exceptions.IncorrectData;
 import model.logic.LogicInterfaces.ILogic;
 import model.logic.LogicInterfaces.IPersonalFileLogic;
 import model.service.PersonalFileService;
@@ -11,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class PersonalFileLogic  implements ILogic<PersonalFile>, IPersonalFileLogic {
-    public PersonalFile serchByStudent(int idStudent) throws SQLException {
+    public PersonalFile serchByStudent(int idStudent) throws SQLException, IncorrectData {
             PersonalFile personalFile = null;
             List<PersonalFile> personalFileList = new PersonalFileService().getAll();
             for(PersonalFile file : personalFileList){
@@ -24,7 +25,7 @@ public class PersonalFileLogic  implements ILogic<PersonalFile>, IPersonalFileLo
     }
 
     @Override
-    public Optional<PersonalFile> add(PersonalFile personalFile) throws SQLException, DataAlreadyInDB {
+    public Optional<PersonalFile> add(PersonalFile personalFile) throws SQLException, DataAlreadyInDB, IncorrectData {
         List<PersonalFile> personalFileList = new PersonalFileService().getAll();
         int personelFileMaxId = 0;
         for(PersonalFile file : personalFileList){
